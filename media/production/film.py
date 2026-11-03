@@ -381,9 +381,9 @@ def proof_slide():
     spaced(d, (164, 160), "HONEST BY DESIGN", font("demi", 24), GOLD + (255,), 6)
     d.text((160, 204), "Built to be trusted, and tested.", font=font("serif", 70), fill=CREAM + (255,))
     stats = [
-        ("90 / 100", "target garments identified in a frozen 100-photo lifestyle benchmark"),
-        ("85 / 100", "faithful full-garment previews, each one labeled as AI inference"),
-        ("1,593", "automated tests, including 12 real-browser end-to-end runs"),
+        ("8 pieces", "from one three-person photo in about 100 seconds, live"),
+        ("30 photos", "real street-style photos re-tested; duplicates and fragments fixed"),
+        ("1,612", "automated tests, including 12 real-browser end-to-end runs"),
     ]
     x = 160
     for value, text in stats:
@@ -411,8 +411,10 @@ def close_slide():
     f = font("demi", 30)
     width = sum(d.textlength(c, font=f) + 8 for c in tag) - 8
     spaced(d, (W // 2 - width / 2, 548), tag, f, GOLD + (255,), 8)
-    d.text((W // 2, 650), "Built with Meta SAM 3.1 · Muse Spark 1.3 · Muse Image 1.0", font=font("medium", 30), fill=MUTED + (255,), anchor="ma")
-    d.text((W // 2, 700), "Web app + Chrome extension · Meta Global Hackathon 2026", font=font("medium", 26), fill=MUTED + (255,), anchor="ma")
+    d.rounded_rectangle((W // 2 - 250, 630, W // 2 + 250, 700), 35, fill=(255, 253, 248, 255))
+    d.text((W // 2, 665), "rewear.soraing.com", font=font("demi", 34), fill=FOREST + (255,), anchor="mm")
+    d.text((W // 2, 742), "Built with Meta SAM 3.1 · Muse Spark 1.3 · Muse Image 1.0", font=font("medium", 30), fill=MUTED + (255,), anchor="ma")
+    d.text((W // 2, 790), "Web app + Chrome extension · Meta Global AI Developer Hackathon 2026", font=font("medium", 26), fill=MUTED + (255,), anchor="ma")
     return image
 
 

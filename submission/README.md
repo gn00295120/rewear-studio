@@ -53,6 +53,6 @@ in the extension popup, sign in once, then hover any outfit photo and click "Sho
   擴充功能尚未在真實 Facebook／Instagram 實測，見 `docs/HACKATHON_HANDOFF.md` 的「目前不可宣稱的內容」。
 - 開頭街頭 POV 畫面取自 `media/production/sources/rewear-pov-film-v2.mp4`（另一位代理製作的影片的導入重剪版）。
 - 旁白由 Kokoro-82M（Apache-2.0，本機執行）合成，聲音為 `af_heart`。配樂與音效都是用程式合成的原創內容。
-- 測試數據取自 README：100 張固定生活照基準中，同目標辨識 90/100、忠實完整預覽 85/100（10/23 前置準備時執行）；影片製作時程式回歸為 1,593 項，之後加入評審帳號功能後為 1,610 項。
+- 影片的測試數據頁只用活動期間的成果：實錄三人合照約 100 秒找出 8 件、30 張街拍重測、1,612 項自動化測試（含 12 項真實瀏覽器端對端）。10/23 前置準備的 100 張基準（90/100、85/100）只寫在 README，影片不引用。
 
 重新產生影片的方法見 [`media/production/README.md`](../media/production/README.md)。

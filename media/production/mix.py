@@ -8,7 +8,7 @@ from pathlib import Path
 
 import numpy as np
 
-WORK, VIDEO, OUT = Path(sys.argv[1]), Path(sys.argv[2]), Path(sys.argv[3])
+WORK, VIDEO, OUT = Path(sys.argv[1]).resolve(), Path(sys.argv[2]).resolve(), Path(sys.argv[3]).resolve()
 SOFT_SRT = Path(sys.argv[4]) if len(sys.argv) > 4 else None
 RATE = 48000
 ROOT = Path(__file__).resolve().parents[2]

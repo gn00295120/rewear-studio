@@ -48,7 +48,7 @@
       "id": "n7",
       "scene": 2,
       "at": 0.65,
-      "say": "So we built [Rewear](/ɹiwˈɛɹ/) for Chrome.",
+      "say": "So we built [Rewear](/ɹˈiwˌɛɹ/) for Chrome.",
       "show": "So we built Rewear for Chrome."
     },
     {
@@ -62,7 +62,7 @@
       "id": "n9",
       "scene": 2,
       "at": "ext_part1+0.25",
-      "say": "[Rewear](/ɹiwˈɛɹ/) opens by itself, and Meta AI gets to work.",
+      "say": "[Rewear](/ɹˈiwˌɛɹ/) opens by itself, and Meta AI gets to work.",
       "show": "Rewear opens by itself, and Meta AI gets to work."
     },
     {
@@ -125,14 +125,14 @@
       "id": "n18",
       "scene": 5,
       "at": 0.45,
-      "say": "It's honest by design, and it's tested. Ninety of a hundred garments identified on a fixed benchmark, and over fifteen hundred automated tests.",
-      "show": "It’s honest by design, and it’s tested: 90 of 100 garments identified on a fixed benchmark, and over 1,500 automated tests."
+      "say": "It's honest by design, and tested live: eight pieces from one photo, and over sixteen hundred automated tests.",
+      "show": "It’s honest by design, and tested live: 8 pieces from one photo, and over 1,600 automated tests."
     },
     {
       "id": "n19",
       "scene": 6,
       "at": 0.8,
-      "say": "[Rewear](/ɹiwˈɛɹ/) Studio. See it. Find it. Buy it.",
+      "say": "[Rewear](/ɹˈiwˌɛɹ/) Studio. See it. Find it. Buy it.",
       "show": "Rewear Studio. See it. Find it. Buy it."
     }
   ]

@@ -46,8 +46,9 @@ stream = await client.responses.create(
 ## Built during the hackathon (Oct 26 – Nov 4, 2026)
 
 **Before the event (Oct 21–23): preparation.** An early prototype of the segmentation → garment-inspection →
-preview pipeline and of the hosted mode, plus internal quality benchmarks. The 100-photo benchmark figures quoted
-in the demo video (90/100 identified, 85/100 faithful previews) come from that preparation run on Oct 23.
+preview pipeline and of the hosted mode, plus internal quality benchmarks. The 100-photo benchmark figures below
+(90/100 identified, 85/100 faithful previews) come from that preparation run on Oct 23; the demo video shows only
+results from the event (a live 8-piece analysis, the 30-photo street re-test and the current test suite).
 
 **During the event.** The user-facing experience shown in the demo was built or rebuilt in the hackathon window:
 
@@ -144,7 +145,8 @@ AI 預覽一律標示，購物連結只說「相似款」，不宣稱是同一�
 ### 活動期間完成的工作
 
 **活動前（10/21–10/23）為前置準備：** 分割 → 衣物判讀 → 預覽流程與網站模式的早期原型，以及內部品質基準。
-影片引用的 100 張基準數字（辨識 90/100、忠實預覽 85/100）來自 10/23 的前置準備。
+下方 100 張基準數字（辨識 90/100、忠實預覽 85/100）來自 10/23 的前置準備；Demo 影片只呈現活動期間的成果
+（實錄 8 件分析、30 張街拍重測與目前的自動化測試）。
 
 **活動期間（10/26–11/4）完成：** 影片中使用者看到的產品體驗，都是活動期間新做或重做的：
 
