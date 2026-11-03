@@ -8,7 +8,7 @@ apart from what it guessed: unclear regions are flagged instead of guessed, AI p
 shopping links say "similar", never "the same item".
 
 - **Live demo:** <https://rewear.soraing.com> (the judge login is in the submission form)
-- **Demo video** (1:41, English narration and subtitles): [`submission/`](submission/README.md)
+- **Demo video** (1:41, English narration and subtitles): <https://youtu.be/lm5mTxP44jc>
 - **Chrome extension "Shop this look":** [`extension/`](extension/README.md)
 - Built for the **Meta Global AI Developer Hackathon 2026**
 
@@ -131,7 +131,7 @@ MIT — see [`LICENSE`](LICENSE). Third-party photos keep their own licenses (Pe
 AI 預覽一律標示，購物連結只說「相似款」，不宣稱是同一件。
 
 - **線上試用：** <https://rewear.soraing.com>（評審帳號寫在提交表單）
-- **Demo 影片與提交檔案：** [`submission/`](submission/README.md)（1:41，英文旁白與字幕）
+- **Demo 影片：** <https://youtu.be/lm5mTxP44jc>（1:41，英文旁白與字幕）；提交檔案在 [`submission/`](submission/README.md)
 - **Chrome 擴充功能「Shop this look」：** [`extension/`](extension/README.md)
 
 > **時程：** 10/21–10/23 為準備期（流程的早期原型與內部基準），10/26–11/4 為活動期間開發。各項成果的時間見

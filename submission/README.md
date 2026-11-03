@@ -4,7 +4,7 @@ Meta Global Hackathon 2026 需要上傳或填寫的檔案都在這裡。
 
 | 檔案 | 用途 |
 |---|---|
-| `rewear-demo.mp4` | **主要 Demo 影片**（1:41，1920×1080，30 fps）。英文旁白，畫面乾淨；內含可開關的英文字幕軌 |
+| `rewear-demo.mp4` | **主要 Demo 影片**（1:41，1920×1080，30 fps；已上傳 <https://youtu.be/lm5mTxP44jc>）。英文旁白，畫面乾淨；內含可開關的英文字幕軌 |
 | `rewear-demo-subtitled.mp4` | 同一支影片，英文字幕直接燒在畫面上。適合靜音自動播放的社群貼文，或無法另掛字幕的平台 |
 | `rewear-demo.en.srt` | 英文字幕檔。上傳 YouTube 後到「字幕」加入，評審可以開關 |
 | `rewear-chrome-extension.zip` | Chrome 擴充功能「Shop this look」。解壓後在 `chrome://extensions` 開啟開發人員模式，選「載入未封裝項目」 |
