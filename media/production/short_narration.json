@@ -1,0 +1,30 @@
+{
+  "voice": "af_heart",
+  "speed": 1.05,
+  "lines": [
+    {
+      "id": "x1",
+      "say": "See an outfit you love? Snap it."
+    },
+    {
+      "id": "x2",
+      "say": "Meta AI finds every piece."
+    },
+    {
+      "id": "x3",
+      "say": "Then shop similar, in one tap."
+    },
+    {
+      "id": "x4",
+      "say": "It even works on any photo in your feed."
+    },
+    {
+      "id": "x5",
+      "say": "Eight pieces, from one photo."
+    },
+    {
+      "id": "x6",
+      "say": "[Rewear](/ɹˈiwˌɛɹ/) Studio. Try it now."
+    }
+  ]
+}

@@ -31,6 +31,16 @@ uv run python mix.py . build/video-clean.mp4 build/rewear-demo.mp4 build/rewear-
 uv run python mix.py . build/video-subs.mp4 build/rewear-demo-subtitled.mp4
 ```
 
+## X 用直式短片
+
+`short.py` 產生 1080×1920、約 28 秒的短片（字幕燒在畫面上、旁白在 `voice-short/`）：
+
+```sh
+uv run python short.py build/rewear-short.mp4
+```
+
+旁白原稿在 `short_narration.json`，用下面同一個 `tts.py` 指令重新產生（輸出目錄改為 `voice-short`）。
+
 ## 重新產生旁白
 
 修改 `narration.json` 後執行下列指令。第一次執行會下載 Kokoro 模型（約 330 MB）。
