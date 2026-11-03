@@ -1,0 +1,63 @@
+:root {
+  color-scheme: light;
+  --forest: #25463c;
+  --paper: #fcf9f3;
+  --ink: #2a3a2e;
+  --muted: #6c7769;
+  --line: #ddd8cc;
+  --gold: #c4956a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  width: 340px;
+  margin: 0;
+  padding: 18px;
+  background: var(--paper);
+  color: var(--ink);
+  font: 14px/1.45 -apple-system, BlinkMacSystemFont, "Avenir Next", "Segoe UI", sans-serif;
+}
+
+header { display: flex; gap: 12px; align-items: center; margin-bottom: 14px; }
+.mark { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 12px; background: var(--forest); }
+.mark svg { width: 24px; height: 24px; fill: none; stroke: #f3d6ba; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+h1 { margin: 0; font: 600 19px/1.2 "Iowan Old Style", Palatino, Georgia, serif; }
+header p { margin: 2px 0 0; color: var(--muted); font-size: 12px; }
+
+.steps { margin: 0 0 16px; padding-left: 20px; }
+.steps li { margin-bottom: 4px; }
+
+label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 12px; color: var(--muted); }
+.row { display: flex; gap: 8px; }
+input {
+  flex: 1;
+  min-width: 0;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+}
+input:focus { outline: 2px solid var(--gold); outline-offset: 1px; }
+
+button {
+  border: 0;
+  border-radius: 8px;
+  padding: 8px 14px;
+  background: var(--forest);
+  color: #fffdf8;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+}
+button:hover { background: #1d3830; }
+
+.status { margin: 12px 0; padding: 9px 11px; border-radius: 8px; background: #efece3; font-size: 13px; }
+.status.ok { background: #e3eee6; color: #1f4d33; }
+.status.error { background: #f6e3dc; color: #7c3420; }
+.open { width: 100%; padding: 11px; }
+.privacy { margin: 12px 0 0; color: var(--muted); font-size: 12px; }

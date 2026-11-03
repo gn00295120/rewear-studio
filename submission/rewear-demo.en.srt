@@ -1,0 +1,99 @@
+1
+00:00:00,700 --> 00:00:02,178
+See an outfit you love?
+
+2
+00:00:03,000 --> 00:00:04,072
+Just snap it.
+
+3
+00:00:06,900 --> 00:00:08,663
+Meta AI takes it from there.
+
+4
+00:00:08,683 --> 00:00:12,576
+SAM finds every garment, and Muse Spark reads the details.
+
+5
+00:00:13,083 --> 00:00:15,164
+A polka-dot maxi dress, found.
+
+6
+00:00:15,333 --> 00:00:17,476
+And one tap to shop similar styles.
+
+7
+00:00:19,383 --> 00:00:21,795
+But most of the looks you love aren't on the street.
+
+8
+00:00:21,815 --> 00:00:22,996
+They're in your feed.
+
+9
+00:00:23,583 --> 00:00:25,344
+So we built Rewear for Chrome.
+
+10
+00:00:25,933 --> 00:00:28,620
+Hover over any photo, and click “Shop this look”.
+
+11
+00:00:30,150 --> 00:00:33,582
+Rewear opens by itself, and Meta AI gets to work.
+
+12
+00:00:37,967 --> 00:00:40,313
+Eight pieces, across all three outfits.
+
+13
+00:00:42,533 --> 00:00:46,570
+Muse Image then previews every piece, clearly labeled as AI.
+
+14
+00:00:47,733 --> 00:00:51,739
+Tap any piece to shop similar styles on Google, Bing or the web.
+
+15
+00:00:54,383 --> 00:00:57,099
+Under the hood, three Meta models work together.
+
+16
+00:00:57,133 --> 00:01:00,994
+SAM 3.1 segments every garment, pixel by pixel.
+
+17
+00:01:01,333 --> 00:01:03,753
+Muse Spark 1.3 reads each piece:
+
+18
+00:01:03,773 --> 00:01:06,412
+its type, cut, color and fabric.
+
+19
+00:01:07,933 --> 00:01:13,092
+And Muse Image 1.0 previews the complete garment, always labeled as AI.
+
+20
+00:01:13,983 --> 00:01:16,504
+Every photo in a feed is shopping intent:
+
+21
+00:01:16,524 --> 00:01:20,221
+one click for shoppers, new revenue for creators and brands,
+
+22
+00:01:20,241 --> 00:01:23,663
+and native outfit search for Facebook and Instagram.
+
+23
+00:01:24,483 --> 00:01:27,325
+It’s honest by design, and it’s tested:
+
+24
+00:01:27,345 --> 00:01:33,636
+90 of 100 garments identified on a fixed benchmark, and over 1,500 automated tests.
+
+25
+00:01:34,833 --> 00:01:37,523
+Rewear Studio. See it. Find it. Buy it.

@@ -1,0 +1,659 @@
+{
+  "provenance": {
+    "kind": "Saved real model response; no model calls in this fixture",
+    "source": "out/verification/success-rate-20261021/final-fidelity-recheck.json",
+    "source_sha256": "1ce096e221da93f26d228563d9fa1e2a860a77cdc4a1a51e6f970993b198a71d",
+    "case": "runner-front",
+    "expected_strict_acceptance": false
+  },
+  "report": {
+    "version": 1,
+    "status": "accepted",
+    "source_view": "front",
+    "plan": {
+      "target": "one_garment",
+      "source_view": "front",
+      "view_evidence": "可見前中黑色拉鍊自下擺直達領口、胸前左右貼袋開口朝上、兜帽在頸後立起、前領包覆頸部，無後領標或背片結構，判定為正面",
+      "garment_type": "藍黑拼色連帽拉鍊外套",
+      "visibility": "complete",
+      "visible_features": [
+        {
+          "feature": "colour",
+          "detail": "寶藍色與黑色拼色，胸前大面積與上臂外側為鮮豔寶藍色，肩部、袖身主體、下半身與兜帽為黑色；主體為黑色與寶藍色拼接，下半身衣身及肩部、袖身大部為黑色，前胸大面積拼塊及兩臂外側上臂塊為寶藍色，袖身另有細藍色橫條。"
+        },
+        {
+          "feature": "panel_geometry",
+          "detail": "前胸寶藍色大拼塊自立領延伸至腹部中線，中央黑色全開拉鍊貫穿；拉鍊觀看者左、右兩側各有一長方形貼袋輪廓，袋口橫向開口線可見，與中央拉鍊保持間隔並列，未見貼袋上有拉鍊構造；貼袋下半及拼塊下緣部分被雙手遮擋。"
+        },
+        {
+          "feature": "silhouette",
+          "detail": "合身直筒運動外套輪廓，衣長至臀上，下擺平直略收"
+        },
+        {
+          "feature": "collar",
+          "detail": "高立領內層為寶藍色，外側連接黑色兜帽，兜帽豎立於頸後兩側；領口中央黑色拉鍊頂端旁附淺藍色織帶拉片，拉片沿拉鍊左側垂直下垂。"
+        },
+        {
+          "feature": "sleeves",
+          "detail": "長袖黑色為主，觀看者右側上臂外側有寶藍色拼接，觀看者左側袖下段可見寶藍色橫條，袖身貼腕"
+        },
+        {
+          "feature": "hem",
+          "detail": "下擺平直黑色收邊，無開衩，長度覆蓋腰部"
+        },
+        {
+          "feature": "closures",
+          "detail": "前中全開黑色拉鍊自下擺直達領口頂端，領口處配寶藍色垂直織帶拉片；中央黑色全長拉鍊自領口直達下擺，頂端觀看者左側附淺藍色織帶拉片；胸前貼袋未見拉鍊，僅中央門襟為拉鍊閉合。"
+        },
+        {
+          "feature": "pockets",
+          "detail": "胸前左右各一大型無蓋貼袋，袋口開口朝上，位於寶藍色胸片上"
+        },
+        {
+          "feature": "graphics",
+          "detail": "觀看者右側袖即穿著者左手上臂外側寶藍色拼接塊，塊面中下部有一處黑色小型徽標圖形，三條槓加下方文字狀；藍塊上下皆接黑色袖身，下方另有一細橫向藍色條紋分割。"
+        },
+        {
+          "feature": "texture",
+          "detail": "表面為光滑針織軟殼質感，無明顯紋理或反光"
+        },
+        {
+          "feature": "other",
+          "detail": "觀看者右側下擺側縫附近露出一小段寶藍色織帶小標，位於黑色衣身與側縫交界處。"
+        }
+      ],
+      "uncertain_areas": [
+        {
+          "area": "背面外觀",
+          "detail": "背面未在原圖出現，兜帽背面形狀、背面拼色分割、背面口袋或徽標無法確認，重建保持正面即可",
+          "critical": false
+        },
+        {
+          "area": "袖口收口細節",
+          "detail": "雙手彎曲遮擋袖口邊緣，無法確認是直筒、羅紋收口或調節設計，僅見貼腕黑色袖身",
+          "critical": false
+        },
+        {
+          "area": "下擺側縫拉鍊標籤",
+          "detail": "觀看者右側下擺側縫處可見小段藍色，疑為側袋拉鍊或小標，被手臂與皺褶遮擋，形狀與功能無法確認",
+          "critical": false
+        }
+      ],
+      "detail_regions": [
+        {
+          "name": "前胸拼片與貼袋拉鍊關係",
+          "feature": "panel_geometry",
+          "source_image": "context",
+          "box": [
+            0.155,
+            0.185,
+            0.7,
+            0.61
+          ],
+          "support": "clear",
+          "detail": "前胸寶藍色大拼塊自立領延伸至腹部中線，中央黑色全開拉鍊貫穿；拉鍊觀看者左、右兩側各有一長方形貼袋輪廓，袋口橫向開口線可見，與中央拉鍊保持間隔並列，未見貼袋上有拉鍊構造；貼袋下半及拼塊下緣部分被雙手遮擋。"
+        },
+        {
+          "name": "觀看者右側袖藍塊徽標",
+          "feature": "graphics",
+          "source_image": "context",
+          "box": [
+            0.62,
+            0.335,
+            0.835,
+            0.535
+          ],
+          "support": "clear",
+          "detail": "觀看者右側袖即穿著者左手上臂外側寶藍色拼接塊，塊面中下部有一處黑色小型徽標圖形，三條槓加下方文字狀；藍塊上下皆接黑色袖身，下方另有一細橫向藍色條紋分割。"
+        },
+        {
+          "name": "領口兜帽與拉片",
+          "feature": "collar",
+          "source_image": "context",
+          "box": [
+            0.27,
+            0.14,
+            0.725,
+            0.275
+          ],
+          "support": "clear",
+          "detail": "高立領內層為寶藍色，外側連接黑色兜帽，兜帽豎立於頸後兩側；領口中央黑色拉鍊頂端旁附淺藍色織帶拉片，拉片沿拉鍊左側垂直下垂。"
+        }
+      ],
+      "initial_source_plan": {
+        "target": "one_garment",
+        "source_view": "front",
+        "view_evidence": "可見前中黑色拉鍊自下擺直達領口、胸前左右貼袋開口朝上、兜帽在頸後立起、前領包覆頸部，無後領標或背片結構，判定為正面",
+        "garment_type": "藍黑拼色連帽拉鍊外套",
+        "visibility": "complete",
+        "visible_features": [
+          {
+            "feature": "colour",
+            "detail": "寶藍色與黑色拼色，胸前大面積與上臂外側為鮮豔寶藍色，肩部、袖身主體、下半身與兜帽為黑色"
+          },
+          {
+            "feature": "panel_geometry",
+            "detail": "寶藍色胸片佔前身上半自領口至腰上，頂部與黑色肩部以斜線拼接，兩側與黑色拼接，下方以橫線接黑色下擺，上臂外側另有寶藍色長形拼接塊"
+          },
+          {
+            "feature": "silhouette",
+            "detail": "合身直筒運動外套輪廓，衣長至臀上，下擺平直略收"
+          },
+          {
+            "feature": "collar",
+            "detail": "高領連帽結構，黑色兜帽在頸後立起，前領為寶藍色高立領包覆頸部"
+          },
+          {
+            "feature": "sleeves",
+            "detail": "長袖黑色為主，觀看者右側上臂外側有寶藍色拼接，觀看者左側袖下段可見寶藍色橫條，袖身貼腕"
+          },
+          {
+            "feature": "hem",
+            "detail": "下擺平直黑色收邊，無開衩，長度覆蓋腰部"
+          },
+          {
+            "feature": "closures",
+            "detail": "前中全開黑色拉鍊自下擺直達領口頂端，領口處配寶藍色垂直織帶拉片"
+          },
+          {
+            "feature": "pockets",
+            "detail": "胸前左右各一大型無蓋貼袋，袋口開口朝上，位於寶藍色胸片上"
+          },
+          {
+            "feature": "graphics",
+            "detail": "觀看者右側袖寶藍色塊上有黑色小型徽標圖形，位於上臂中段"
+          },
+          {
+            "feature": "texture",
+            "detail": "表面為光滑針織軟殼質感，無明顯紋理或反光"
+          }
+        ],
+        "uncertain_areas": [
+          {
+            "area": "背面外觀",
+            "detail": "背面未在原圖出現，兜帽背面形狀、背面拼色分割、背面口袋或徽標無法確認，重建保持正面即可",
+            "critical": false
+          },
+          {
+            "area": "袖口收口細節",
+            "detail": "雙手彎曲遮擋袖口邊緣，無法確認是直筒、羅紋收口或調節設計，僅見貼腕黑色袖身",
+            "critical": false
+          },
+          {
+            "area": "下擺側縫拉鍊標籤",
+            "detail": "觀看者右側下擺側縫處可見小段藍色，疑為側袋拉鍊或小標，被手臂與皺褶遮擋，形狀與功能無法確認",
+            "critical": false
+          }
+        ],
+        "detail_regions": [
+          {
+            "name": "前胸拼片與貼袋拉鍊關係",
+            "feature": "panel_geometry",
+            "source_image": "context",
+            "box": [
+              0.18,
+              0.19,
+              0.67,
+              0.62
+            ],
+            "support": "clear",
+            "detail": "寶藍色胸片左右各有一貼袋，前中黑拉鍊貫穿，藍黑左右及下方拼接線清晰可見，包含相鄰黑色肩袖邊緣"
+          },
+          {
+            "name": "觀看者右側袖藍塊徽標",
+            "feature": "graphics",
+            "source_image": "context",
+            "box": [
+              0.65,
+              0.31,
+              0.87,
+              0.56
+            ],
+            "support": "clear",
+            "detail": "藍色長形袖拼接塊上有黑色小徽標，下方接黑色袖身與藍色橫條，徽標與色塊比例可辨"
+          },
+          {
+            "name": "領口兜帽與拉片",
+            "feature": "collar",
+            "source_image": "context",
+            "box": [
+              0.305,
+              0.143,
+              0.67,
+              0.275
+            ],
+            "support": "clear",
+            "detail": "黑色兜帽在頸後立起，前領寶藍色高領，觀看者左側可見寶藍色垂直拉片與黑色拉鍊頂端交接"
+          }
+        ]
+      },
+      "original_ambiguous_regions": [],
+      "planning_attempts": [
+        {
+          "stage": "source_plan",
+          "attempt": 1,
+          "status": "valid",
+          "issues": [],
+          "source_plan": {
+            "target": "one_garment",
+            "source_view": "front",
+            "view_evidence": "可見前中黑色拉鍊自下擺直達領口、胸前左右貼袋開口朝上、兜帽在頸後立起、前領包覆頸部，無後領標或背片結構，判定為正面",
+            "garment_type": "藍黑拼色連帽拉鍊外套",
+            "visibility": "complete",
+            "visible_features": [
+              {
+                "feature": "colour",
+                "detail": "寶藍色與黑色拼色，胸前大面積與上臂外側為鮮豔寶藍色，肩部、袖身主體、下半身與兜帽為黑色"
+              },
+              {
+                "feature": "panel_geometry",
+                "detail": "寶藍色胸片佔前身上半自領口至腰上，頂部與黑色肩部以斜線拼接，兩側與黑色拼接，下方以橫線接黑色下擺，上臂外側另有寶藍色長形拼接塊"
+              },
+              {
+                "feature": "silhouette",
+                "detail": "合身直筒運動外套輪廓，衣長至臀上，下擺平直略收"
+              },
+              {
+                "feature": "collar",
+                "detail": "高領連帽結構，黑色兜帽在頸後立起，前領為寶藍色高立領包覆頸部"
+              },
+              {
+                "feature": "sleeves",
+                "detail": "長袖黑色為主，觀看者右側上臂外側有寶藍色拼接，觀看者左側袖下段可見寶藍色橫條，袖身貼腕"
+              },
+              {
+                "feature": "hem",
+                "detail": "下擺平直黑色收邊，無開衩，長度覆蓋腰部"
+              },
+              {
+                "feature": "closures",
+                "detail": "前中全開黑色拉鍊自下擺直達領口頂端，領口處配寶藍色垂直織帶拉片"
+              },
+              {
+                "feature": "pockets",
+                "detail": "胸前左右各一大型無蓋貼袋，袋口開口朝上，位於寶藍色胸片上"
+              },
+              {
+                "feature": "graphics",
+                "detail": "觀看者右側袖寶藍色塊上有黑色小型徽標圖形，位於上臂中段"
+              },
+              {
+                "feature": "texture",
+                "detail": "表面為光滑針織軟殼質感，無明顯紋理或反光"
+              }
+            ],
+            "uncertain_areas": [
+              {
+                "area": "背面外觀",
+                "detail": "背面未在原圖出現，兜帽背面形狀、背面拼色分割、背面口袋或徽標無法確認，重建保持正面即可",
+                "critical": false
+              },
+              {
+                "area": "袖口收口細節",
+                "detail": "雙手彎曲遮擋袖口邊緣，無法確認是直筒、羅紋收口或調節設計，僅見貼腕黑色袖身",
+                "critical": false
+              },
+              {
+                "area": "下擺側縫拉鍊標籤",
+                "detail": "觀看者右側下擺側縫處可見小段藍色，疑為側袋拉鍊或小標，被手臂與皺褶遮擋，形狀與功能無法確認",
+                "critical": false
+              }
+            ],
+            "detail_regions": [
+              {
+                "name": "前胸拼片與貼袋拉鍊關係",
+                "feature": "panel_geometry",
+                "source_image": "context",
+                "box": [
+                  0.18,
+                  0.19,
+                  0.67,
+                  0.62
+                ],
+                "support": "clear",
+                "detail": "寶藍色胸片左右各有一貼袋，前中黑拉鍊貫穿，藍黑左右及下方拼接線清晰可見，包含相鄰黑色肩袖邊緣"
+              },
+              {
+                "name": "觀看者右側袖藍塊徽標",
+                "feature": "graphics",
+                "source_image": "context",
+                "box": [
+                  0.65,
+                  0.31,
+                  0.87,
+                  0.56
+                ],
+                "support": "clear",
+                "detail": "藍色長形袖拼接塊上有黑色小徽標，下方接黑色袖身與藍色橫條，徽標與色塊比例可辨"
+              },
+              {
+                "name": "領口兜帽與拉片",
+                "feature": "collar",
+                "source_image": "context",
+                "box": [
+                  0.305,
+                  0.143,
+                  0.67,
+                  0.275
+                ],
+                "support": "clear",
+                "detail": "黑色兜帽在頸後立起，前領寶藍色高領，觀看者左側可見寶藍色垂直拉片與黑色拉鍊頂端交接"
+              }
+            ]
+          },
+          "source_details": null
+        },
+        {
+          "stage": "source_refinement",
+          "attempt": 1,
+          "status": "valid",
+          "issues": [],
+          "source_plan": null,
+          "source_details": {
+            "detail_regions": [
+              {
+                "name": "前胸拼片與貼袋拉鍊關係",
+                "feature": "panel_geometry",
+                "source_image": "context",
+                "box": [
+                  0.155,
+                  0.185,
+                  0.7,
+                  0.61
+                ],
+                "support": "clear",
+                "detail": "前胸寶藍色大拼塊自立領延伸至腹部中線，中央黑色全開拉鍊貫穿；拉鍊觀看者左、右兩側各有一長方形貼袋輪廓，袋口橫向開口線可見，與中央拉鍊保持間隔並列，未見貼袋上有拉鍊構造；貼袋下半及拼塊下緣部分被雙手遮擋。"
+              },
+              {
+                "name": "觀看者右側袖藍塊徽標",
+                "feature": "graphics",
+                "source_image": "context",
+                "box": [
+                  0.62,
+                  0.335,
+                  0.835,
+                  0.535
+                ],
+                "support": "clear",
+                "detail": "觀看者右側袖即穿著者左手上臂外側寶藍色拼接塊，塊面中下部有一處黑色小型徽標圖形，三條槓加下方文字狀；藍塊上下皆接黑色袖身，下方另有一細橫向藍色條紋分割。"
+              },
+              {
+                "name": "領口兜帽與拉片",
+                "feature": "collar",
+                "source_image": "context",
+                "box": [
+                  0.27,
+                  0.14,
+                  0.725,
+                  0.275
+                ],
+                "support": "clear",
+                "detail": "高立領內層為寶藍色，外側連接黑色兜帽，兜帽豎立於頸後兩側；領口中央黑色拉鍊頂端旁附淺藍色織帶拉片，拉片沿拉鍊左側垂直下垂。"
+              }
+            ],
+            "visible_features": [
+              {
+                "feature": "colour",
+                "detail": "主體為黑色與寶藍色拼接，下半身衣身及肩部、袖身大部為黑色，前胸大面積拼塊及兩臂外側上臂塊為寶藍色，袖身另有細藍色橫條。"
+              },
+              {
+                "feature": "closures",
+                "detail": "中央黑色全長拉鍊自領口直達下擺，頂端觀看者左側附淺藍色織帶拉片；胸前貼袋未見拉鍊，僅中央門襟為拉鍊閉合。"
+              },
+              {
+                "feature": "other",
+                "detail": "觀看者右側下擺側縫附近露出一小段寶藍色織帶小標，位於黑色衣身與側縫交界處。"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "checks": {
+      "viewpoint": {
+        "status": "pass",
+        "reason": "生成候選為正面平鋪，前中拉鍊自下擺至領口、雙胸貼袋、藍胸拼塊居中，與原圖正面證據一致，判定正面相符。"
+      },
+      "visible_details": {
+        "status": "pass",
+        "reason": "前胸藍拼塊、左右貼袋橫向袋口、中央黑色全開拉鍊、領口淺藍織帶拉片、右袖藍塊黑色徽標、雙袖藍橫條及下擺側縫藍色細節均清晰保留，無遺漏可見細節。"
+      },
+      "color_pattern": {
+        "status": "pass",
+        "reason": "生成件寶藍色胸前大拼塊、上臂外側藍塊與肩部、袖身、下身黑色分布、雙袖細藍橫條均與原圖位置_scale一致，無變色或改為素面。"
+      },
+      "cut_structure": {
+        "status": "pass",
+        "reason": "藍胸塊自立領延伸至腹部中線、中央拉鍊貫穿、兩側貼袋與拉鍊間隔並列、肩袖分割線及平直下擺等相對幾何保留，兜帽平鋪展開屬正常攤平，未移動拼色邊界。"
+      },
+      "single_garment": {
+        "status": "pass",
+        "reason": "畫面僅有一件藍黑拼色連帽拉鍊外套，無其他衣物混入，符合單件要求。"
+      },
+      "no_person_or_extras": {
+        "status": "pass",
+        "reason": "畫面為淺色淨背景平鋪，無人物、肢體、模特、衣架、鄰衣、道具，袖上黑色徽標為原有保留非新增圖文。"
+      },
+      "complete_outline": {
+        "status": "pass",
+        "reason": "兜帽頂、雙袖袖口及下擺均完整入框，無裁切、白色分割孔洞或斷裂片，輪廓連續完整。"
+      }
+    },
+    "feature_checks": [
+      {
+        "feature": "colour",
+        "status": "pass",
+        "reason": "寶藍與黑色拼色鮮明，胸前、上臂藍塊與肩、袖主體、下身黑色對應原圖，無色偏。"
+      },
+      {
+        "feature": "panel_geometry",
+        "status": "pass",
+        "reason": "藍胸大拼塊自立領至腹部中線、中央拉鍊貫穿、拉鍊兩側長方形貼袋橫口並列間隔，與原圖一致。"
+      },
+      {
+        "feature": "silhouette",
+        "status": "pass",
+        "reason": "合身直筒運動外套輪廓，衣長至臀上、下擺平直略收，與原圖一致。"
+      },
+      {
+        "feature": "collar",
+        "status": "pass",
+        "reason": "高立領內層寶藍、外接黑色兜帽，領口中央黑色拉鍊頂端旁淺藍織帶拉片下垂保留，兜帽平鋪屬正常差異。"
+      },
+      {
+        "feature": "sleeves",
+        "status": "pass",
+        "reason": "長袖黑色為主，上臂外側寶藍拼接、袖身細藍橫條、貼腕袖身均保留，左右對應原圖。"
+      },
+      {
+        "feature": "hem",
+        "status": "pass",
+        "reason": "下擺平直黑色收邊、無開衩、長度覆蓋腰部，與原圖一致。"
+      },
+      {
+        "feature": "closures",
+        "status": "pass",
+        "reason": "前中黑色全長拉鍊自領口至下擺，頂端淺藍織帶拉片保留，胸貼袋無拉鍊僅門襟拉鍊，與原圖一致。"
+      },
+      {
+        "feature": "pockets",
+        "status": "pass",
+        "reason": "胸前左右各一大型無蓋貼袋位於藍胸片上、袋口朝上橫向開口線可見，與原圖一致。"
+      },
+      {
+        "feature": "graphics",
+        "status": "pass",
+        "reason": "圖像右側袖藍塊中下部黑色小型徽標三條槓加下方文字保留，形狀位置與原圖一致。"
+      },
+      {
+        "feature": "texture",
+        "status": "pass",
+        "reason": "表面光滑針織軟殼質感、無明顯紋理或反光，與原圖一致。"
+      },
+      {
+        "feature": "other",
+        "status": "pass",
+        "reason": "圖像右側下擺側縫處小段寶藍色細節保留為側邊藍色拉片，與原圖側縫藍色小標位置對應。"
+      }
+    ],
+    "regional_checks": [
+      {
+        "name": "前胸拼片與貼袋拉鍊關係",
+        "feature": "panel_geometry",
+        "source_observation": "寶藍色大拼塊自頸部立領延伸至腹部，中央黑色拉鍊縱向貫穿，拉鍊兩側各見一長方形貼袋上半輪廓，袋口橫向線可見，與拉鍊保持間隔，袋面未見拉鍊構造，下半被雙手遮擋。",
+        "candidate_observation": "寶藍色大拼塊自立領延伸至下擺，中央黑色全開拉鍊貫穿，拉鍊兩側各有一長方形藍色貼袋，袋口上緣橫向車線清晰，與中央拉鍊保持間隔並列，袋面無拉鍊，下緣與黑色拼接相接。",
+        "status": "pass",
+        "reason": "原圖可見藍色胸前大拼塊、中央黑色拉鍊及兩側貼袋上部橫向袋口線，與拉鍊保持間隔且袋上無拉鍊，候選圖相同位置呈現相同拼塊範圍、拉鍊貫穿及雙貼袋並列關係，可見構造關係一致，下半遮擋不影響已可見部分的比對。",
+        "correction": null
+      },
+      {
+        "name": "觀看者右側袖藍塊徽標",
+        "feature": "graphics",
+        "source_observation": "上臂外側寶藍色塊，塊面中下部有一模糊黑色小型徽標，可辨三條槓及下方文字狀輪廓，藍塊上下接黑色袖身，下方另見細橫向藍色條紋分隔。",
+        "candidate_observation": "上臂外側寶藍色拼接塊，塊面中下部有一黑色小型圖形為三條斜槓加上方短下長及下方文字狀，位於藍塊下部靠近與黑色袖身交界處，藍塊上下接黑色，下方另露出一截藍色條紋。",
+        "status": "pass",
+        "reason": "原圖藍塊上可辨黑色小徽標具三槓加文字輪廓，位置在藍塊中下部，上下接黑色並在下方另有藍色細條，候選圖同一藍塊位置呈現相同黑色三槓加文字圖形及相同上下拼接關係，僅清晰度與裁切比例差異，屬正常拍攝差異。",
+        "correction": null
+      },
+      {
+        "name": "領口兜帽與拉片",
+        "feature": "collar",
+        "source_observation": "高立領內層寶藍色，外側黑色兜帽豎立於頸後兩側，領口中央黑色拉鍊頂端旁有一淺藍色織帶拉片沿拉鍊左側垂直下垂。",
+        "candidate_observation": "高立領內層為寶藍色，外側連接黑色兜帽，兜帽向前罩起，領口中央黑色拉鍊頂端旁附淺藍色織帶拉片，拉片沿拉鍊中線垂下。",
+        "status": "pass",
+        "reason": "原圖可見藍色內立領、頸後兩側黑色兜帽及中央黑色拉鍊頂端淺藍色織帶拉片垂直下垂，候選圖呈現相同藍色內領、黑色外側兜帽連接及相同淺藍色拉片位置，兜帽罩起向前僅為擺放姿態差異，可見構造關係保持一致。",
+        "correction": null
+      }
+    ],
+    "issues": [],
+    "attempts": [
+      {
+        "number": 1,
+        "observed_view": "front",
+        "checks": {
+          "viewpoint": {
+            "status": "pass",
+            "reason": "生成候選為正面平鋪，前中拉鍊自下擺至領口、雙胸貼袋、藍胸拼塊居中，與原圖正面證據一致，判定正面相符。"
+          },
+          "visible_details": {
+            "status": "pass",
+            "reason": "前胸藍拼塊、左右貼袋橫向袋口、中央黑色全開拉鍊、領口淺藍織帶拉片、右袖藍塊黑色徽標、雙袖藍橫條及下擺側縫藍色細節均清晰保留，無遺漏可見細節。"
+          },
+          "color_pattern": {
+            "status": "pass",
+            "reason": "生成件寶藍色胸前大拼塊、上臂外側藍塊與肩部、袖身、下身黑色分布、雙袖細藍橫條均與原圖位置_scale一致，無變色或改為素面。"
+          },
+          "cut_structure": {
+            "status": "pass",
+            "reason": "藍胸塊自立領延伸至腹部中線、中央拉鍊貫穿、兩側貼袋與拉鍊間隔並列、肩袖分割線及平直下擺等相對幾何保留，兜帽平鋪展開屬正常攤平，未移動拼色邊界。"
+          },
+          "single_garment": {
+            "status": "pass",
+            "reason": "畫面僅有一件藍黑拼色連帽拉鍊外套，無其他衣物混入，符合單件要求。"
+          },
+          "no_person_or_extras": {
+            "status": "pass",
+            "reason": "畫面為淺色淨背景平鋪，無人物、肢體、模特、衣架、鄰衣、道具，袖上黑色徽標為原有保留非新增圖文。"
+          },
+          "complete_outline": {
+            "status": "pass",
+            "reason": "兜帽頂、雙袖袖口及下擺均完整入框，無裁切、白色分割孔洞或斷裂片，輪廓連續完整。"
+          }
+        },
+        "feature_checks": [
+          {
+            "feature": "colour",
+            "status": "pass",
+            "reason": "寶藍與黑色拼色鮮明，胸前、上臂藍塊與肩、袖主體、下身黑色對應原圖，無色偏。"
+          },
+          {
+            "feature": "panel_geometry",
+            "status": "pass",
+            "reason": "藍胸大拼塊自立領至腹部中線、中央拉鍊貫穿、拉鍊兩側長方形貼袋橫口並列間隔，與原圖一致。"
+          },
+          {
+            "feature": "silhouette",
+            "status": "pass",
+            "reason": "合身直筒運動外套輪廓，衣長至臀上、下擺平直略收，與原圖一致。"
+          },
+          {
+            "feature": "collar",
+            "status": "pass",
+            "reason": "高立領內層寶藍、外接黑色兜帽，領口中央黑色拉鍊頂端旁淺藍織帶拉片下垂保留，兜帽平鋪屬正常差異。"
+          },
+          {
+            "feature": "sleeves",
+            "status": "pass",
+            "reason": "長袖黑色為主，上臂外側寶藍拼接、袖身細藍橫條、貼腕袖身均保留，左右對應原圖。"
+          },
+          {
+            "feature": "hem",
+            "status": "pass",
+            "reason": "下擺平直黑色收邊、無開衩、長度覆蓋腰部，與原圖一致。"
+          },
+          {
+            "feature": "closures",
+            "status": "pass",
+            "reason": "前中黑色全長拉鍊自領口至下擺，頂端淺藍織帶拉片保留，胸貼袋無拉鍊僅門襟拉鍊，與原圖一致。"
+          },
+          {
+            "feature": "pockets",
+            "status": "pass",
+            "reason": "胸前左右各一大型無蓋貼袋位於藍胸片上、袋口朝上橫向開口線可見，與原圖一致。"
+          },
+          {
+            "feature": "graphics",
+            "status": "pass",
+            "reason": "圖像右側袖藍塊中下部黑色小型徽標三條槓加下方文字保留，形狀位置與原圖一致。"
+          },
+          {
+            "feature": "texture",
+            "status": "pass",
+            "reason": "表面光滑針織軟殼質感、無明顯紋理或反光，與原圖一致。"
+          },
+          {
+            "feature": "other",
+            "status": "pass",
+            "reason": "圖像右側下擺側縫處小段寶藍色細節保留為側邊藍色拉片，與原圖側縫藍色小標位置對應。"
+          }
+        ],
+        "status": "accepted",
+        "issues": [],
+        "corrective_feedback": [],
+        "regional_checks": [
+          {
+            "name": "前胸拼片與貼袋拉鍊關係",
+            "feature": "panel_geometry",
+            "source_observation": "寶藍色大拼塊自頸部立領延伸至腹部，中央黑色拉鍊縱向貫穿，拉鍊兩側各見一長方形貼袋上半輪廓，袋口橫向線可見，與拉鍊保持間隔，袋面未見拉鍊構造，下半被雙手遮擋。",
+            "candidate_observation": "寶藍色大拼塊自立領延伸至下擺，中央黑色全開拉鍊貫穿，拉鍊兩側各有一長方形藍色貼袋，袋口上緣橫向車線清晰，與中央拉鍊保持間隔並列，袋面無拉鍊，下緣與黑色拼接相接。",
+            "status": "pass",
+            "reason": "原圖可見藍色胸前大拼塊、中央黑色拉鍊及兩側貼袋上部橫向袋口線，與拉鍊保持間隔且袋上無拉鍊，候選圖相同位置呈現相同拼塊範圍、拉鍊貫穿及雙貼袋並列關係，可見構造關係一致，下半遮擋不影響已可見部分的比對。",
+            "correction": null
+          },
+          {
+            "name": "觀看者右側袖藍塊徽標",
+            "feature": "graphics",
+            "source_observation": "上臂外側寶藍色塊，塊面中下部有一模糊黑色小型徽標，可辨三條槓及下方文字狀輪廓，藍塊上下接黑色袖身，下方另見細橫向藍色條紋分隔。",
+            "candidate_observation": "上臂外側寶藍色拼接塊，塊面中下部有一黑色小型圖形為三條斜槓加上方短下長及下方文字狀，位於藍塊下部靠近與黑色袖身交界處，藍塊上下接黑色，下方另露出一截藍色條紋。",
+            "status": "pass",
+            "reason": "原圖藍塊上可辨黑色小徽標具三槓加文字輪廓，位置在藍塊中下部，上下接黑色並在下方另有藍色細條，候選圖同一藍塊位置呈現相同黑色三槓加文字圖形及相同上下拼接關係，僅清晰度與裁切比例差異，屬正常拍攝差異。",
+            "correction": null
+          },
+          {
+            "name": "領口兜帽與拉片",
+            "feature": "collar",
+            "source_observation": "高立領內層寶藍色，外側黑色兜帽豎立於頸後兩側，領口中央黑色拉鍊頂端旁有一淺藍色織帶拉片沿拉鍊左側垂直下垂。",
+            "candidate_observation": "高立領內層為寶藍色，外側連接黑色兜帽，兜帽向前罩起，領口中央黑色拉鍊頂端旁附淺藍色織帶拉片，拉片沿拉鍊中線垂下。",
+            "status": "pass",
+            "reason": "原圖可見藍色內立領、頸後兩側黑色兜帽及中央黑色拉鍊頂端淺藍色織帶拉片垂直下垂，候選圖呈現相同藍色內領、黑色外側兜帽連接及相同淺藍色拉片位置，兜帽罩起向前僅為擺放姿態差異，可見構造關係保持一致。",
+            "correction": null
+          }
+        ]
+      }
+    ],
+    "generated": true,
+    "retried": false,
+    "selected_attempt": 1,
+    "revision_error": null
+  }
+}

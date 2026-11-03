@@ -1,0 +1,27 @@
+{
+  "events": {
+    "feed": 2.94,
+    "scrolled": 5.18,
+    "pill": 7.19,
+    "click": 8.25,
+    "rewear_open": 8.56,
+    "scanning": 8.99,
+    "results": 111.6,
+    "results_hold_end": 116.06,
+    "previews_done": 218.22,
+    "scrolled_results": 218.82,
+    "detail_open": 223.49,
+    "detail_end": 225.83
+  },
+  "banner": "LATEST RESULT \u00b7 photo-from-feed.example.jpg | 8 pieces found | All finds",
+  "items": [
+    "AI Preview \u00b7 Selected / BOTTOM / High-rise straight jeans",
+    "AI Preview \u00b7 Selected / TOP / Button-up shirt",
+    "AI Preview \u00b7 Selected / TOP / Crew-neck t-shirt",
+    "AI Preview \u00b7 Selected / BOTTOM / Straight-leg jeans",
+    "AI Preview \u00b7 Selected / TOP / Open-knit crochet short-sleeve top",
+    "AI Preview \u00b7 Selected / BOTTOM / Trousers",
+    "AI Preview \u00b7 Selected / TOP / Crew neck t-shirt",
+    "AI Preview \u00b7 Selected / TOP / Long sleeve button-up shirt"
+  ]
+}

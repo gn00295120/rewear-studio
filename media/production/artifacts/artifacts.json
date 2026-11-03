@@ -1,0 +1,125 @@
+{
+  "job": "935496f99a124a1583cbe40e7382cd33",
+  "source": "source.jpg",
+  "pieces": [
+    {
+      "mask": "mask-0.png",
+      "bbox": [
+        215,
+        911,
+        489,
+        1067
+      ],
+      "name": "Trousers",
+      "id": "e37873ba37a34579adcf1a0a010e9c63"
+    },
+    {
+      "mask": "mask-1.png",
+      "bbox": [
+        115,
+        395,
+        651,
+        994
+      ],
+      "name": "Long sleeve button-up shirt",
+      "id": "b8ac83fa6bde41b89db3f1702700fe22"
+    },
+    {
+      "mask": "mask-2.png",
+      "bbox": [
+        280,
+        461,
+        501,
+        931
+      ],
+      "name": "Crew neck t-shirt",
+      "id": "7ac9e3f4a92f4dbea0dee737295bdc84"
+    },
+    {
+      "mask": "mask-3.png",
+      "bbox": [
+        659,
+        470,
+        1046,
+        836
+      ],
+      "name": "Open-knit crochet short-sleeve top",
+      "id": "61bb144ea9c74e7cb7428e240836a444"
+    },
+    {
+      "mask": "mask-4.png",
+      "bbox": [
+        726,
+        768,
+        981,
+        1067
+      ],
+      "name": "Straight-leg jeans",
+      "id": "090fbad8fcbe41cf8dda59463798272f"
+    },
+    {
+      "mask": "mask-5.png",
+      "bbox": [
+        1164,
+        476,
+        1341,
+        719
+      ],
+      "name": "Crew-neck t-shirt",
+      "id": "8ff0ab73a3a642b5be25c4996b126651"
+    },
+    {
+      "mask": "mask-6.png",
+      "bbox": [
+        1107,
+        694,
+        1413,
+        1067
+      ],
+      "name": "High-rise straight jeans",
+      "id": "d81e929a3eee4d93bfada37ea3067f3e"
+    },
+    {
+      "mask": "mask-7.png",
+      "bbox": [
+        1080,
+        459,
+        1455,
+        868
+      ],
+      "name": "Button-up shirt",
+      "id": "f337144c9f83468bac8ff69d11563240"
+    }
+  ],
+  "spark_rows": [
+    {
+      "crop": "crop-0.jpg",
+      "name": "Long sleeve button-up shirt",
+      "detail": "beige \u00b7 linen"
+    },
+    {
+      "crop": "crop-1.jpg",
+      "name": "Open-knit crochet short-sleeve top",
+      "detail": "beige, white"
+    },
+    {
+      "crop": "crop-2.jpg",
+      "name": "High-rise straight jeans",
+      "detail": "blue \u00b7 denim"
+    }
+  ],
+  "previews": [
+    {
+      "preview": "preview-0.png",
+      "name": "Long sleeve button-up shirt"
+    },
+    {
+      "preview": "preview-1.png",
+      "name": "Open-knit crochet short-sleeve top"
+    },
+    {
+      "preview": "preview-2.png",
+      "name": "High-rise straight jeans"
+    }
+  ]
+}

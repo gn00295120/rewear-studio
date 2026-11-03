@@ -1,0 +1,86 @@
+# Single host, one application process. Caddy shares its network namespace so
+# the private application stays on loopback and trusts only the local proxy.
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    image: rewear-studio:local
+    command:
+      - rewear
+      - --hosted
+      - --host
+      - 127.0.0.1
+      - --port
+      - "8765"
+      - --hosted-data-dir
+      - /var/lib/rewear/data
+      - --max-accounts
+      - ${REWEAR_MAX_ACCOUNTS:-1000}
+      - --max-active-tenants
+      - ${REWEAR_MAX_ACTIVE_TENANTS:-16}
+      - --max-jobs-per-tenant
+      - ${REWEAR_MAX_JOBS_PER_TENANT:-200}
+      - --max-media-mib-per-tenant
+      - ${REWEAR_MAX_MEDIA_MIB_PER_TENANT:-2048}
+    restart: unless-stopped
+    environment:
+      REWEAR_PUBLIC_ORIGIN: https://${REWEAR_DOMAIN:?Set the domain for this deployment}
+      MODEL_API_KEY: ${MODEL_API_KEY:-}
+      OLLAMA_URL: ${OLLAMA_URL:-http://host.docker.internal:11434}
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-muse-glimmer:30b}
+      REWEAR_IMAGE_SEARCH: ${REWEAR_IMAGE_SEARCH:-disabled}
+      REWEAR_VISION_API_KEY: ${REWEAR_VISION_API_KEY:-}
+      REWEAR_ACCOUNTS: ${REWEAR_ACCOUNTS:-open}
+      REWEAR_DAILY_SPEND_LIMIT_USD: ${REWEAR_DAILY_SPEND_LIMIT_USD:-}
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - wardrobe-data:/var/lib/rewear
+    read_only: true
+    tmpfs:
+      - /tmp:size=512m,mode=1777
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 256
+    mem_limit: 2g
+    stop_grace_period: 45s
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+  proxy:
+    image: caddy:2.11.7-alpine@sha256:24ec7b05bc532c7bb57f727030c5056e257ff7138b4b50460306819ff79362bd
+    network_mode: service:app
+    depends_on:
+      app:
+        condition: service_healthy
+    restart: unless-stopped
+    environment:
+      REWEAR_DOMAIN: ${REWEAR_DOMAIN:?Set the domain for this deployment}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    read_only: true
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_BIND_SERVICE
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 128
+    mem_limit: 256m
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+volumes:
+  wardrobe-data:
+  caddy-data:
+  caddy-config:

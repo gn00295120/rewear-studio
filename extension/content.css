@@ -1,0 +1,95 @@
+.rewear-ext-pill,
+.rewear-ext-notice {
+  all: initial !important;
+  position: fixed !important;
+  z-index: 2147483646 !important;
+  box-sizing: border-box !important;
+  font: 600 14px/1 -apple-system, BlinkMacSystemFont, "Avenir Next", "Segoe UI", Roboto, sans-serif !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+.rewear-ext-pill {
+  top: 0 !important;
+  left: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  height: 38px !important;
+  padding: 0 16px 0 12px !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+  background: rgba(37, 70, 60, 0.94) !important;
+  color: #fffdf8 !important;
+  box-shadow: 0 10px 28px rgba(12, 24, 19, 0.32), 0 2px 6px rgba(12, 24, 19, 0.22) !important;
+  cursor: pointer !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity 0.16s ease, background-color 0.16s ease, box-shadow 0.16s ease !important;
+  white-space: nowrap !important;
+}
+
+.rewear-ext-pill.rewear-ext-visible {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.rewear-ext-pill:hover {
+  background: rgba(29, 56, 48, 0.98) !important;
+  box-shadow: 0 12px 32px rgba(12, 24, 19, 0.4), 0 2px 6px rgba(12, 24, 19, 0.26) !important;
+}
+
+.rewear-ext-pill:focus-visible {
+  outline: 3px solid #c4956a !important;
+  outline-offset: 2px !important;
+}
+
+.rewear-ext-pill svg {
+  display: block !important;
+  width: 18px !important;
+  height: 18px !important;
+  fill: none !important;
+  stroke: #f3d6ba !important;
+  stroke-width: 1.8 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+}
+
+.rewear-ext-pill span {
+  all: unset !important;
+  color: inherit !important;
+  font: inherit !important;
+  letter-spacing: 0.01em !important;
+}
+
+.rewear-ext-notice {
+  right: 20px !important;
+  bottom: 20px !important;
+  max-width: min(420px, calc(100vw - 40px)) !important;
+  padding: 13px 16px !important;
+  border-radius: 12px !important;
+  background: #25463c !important;
+  color: #fffdf8 !important;
+  font-weight: 500 !important;
+  line-height: 1.4 !important;
+  box-shadow: 0 12px 32px rgba(12, 24, 19, 0.3) !important;
+  opacity: 0 !important;
+  transform: translateY(8px) !important;
+  pointer-events: none !important;
+  transition: opacity 0.2s ease, transform 0.2s ease !important;
+}
+
+.rewear-ext-notice.rewear-ext-visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.rewear-ext-notice.rewear-ext-error {
+  background: #8a3b22 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rewear-ext-pill,
+  .rewear-ext-notice {
+    transition: none !important;
+  }
+}

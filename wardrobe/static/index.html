@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#25463c">
+  <meta name="description" content="Rewear Studio: Turn any photo into a shoppable outfit breakdown, powered by Meta AI.">
+  <title>Rewear Studio — See It. Find It. Buy It.</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='9' fill='%2325463c'/%3E%3Cpath d='M16 12a4 4 0 1 1 6 3.5V19l12 8H6l16-10' fill='none' stroke='%23f5f3ed' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/i18n.js" defer></script>
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V3m-5 5 5-5 5 5M4 16v5h16v-5"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v13m-5-5 5 5 5-5M4 17v4h16v-4"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 5v5h-5M4 19v-5h5M19 9a7.5 7.5 0 0 0-13-4M5 15a7.5 7.5 0 0 0 13 4"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M9 6V3h6v3M5 6l1 15h12l1-15M10 10v7m4-7v7"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8" cy="8" r="1.5"/><path d="m3 17 5-5 4 4 4-6 5 7"/></symbol>
+    <symbol id="i-video" viewBox="0 0 24 24"><rect x="3" y="5" width="13" height="14" rx="2"/><path d="m16 10 5-4v12l-5-4"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3ZM20 2v4m-2-2h4"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v1"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="13" rx="2"/><path d="M12 16v5m-5 0h10"/></symbol>
+    <symbol id="i-hanger" viewBox="0 0 24 24"><path d="M9 6a3 3 0 1 1 4 2.8V11l8 5a1 1 0 0 1-.5 2H3.5a1 1 0 0 1-.5-2l10-6"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 3h7v7m0-7L10 14M10 3H3v18h18v-7"/></symbol>
+    <symbol id="i-stop" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="1"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 8h3l1.5-2.5h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13" r="3.5"/></symbol>
+    <symbol id="i-images" viewBox="0 0 24 24"><rect x="7" y="3" width="14" height="14" rx="2"/><path d="M3 7v12a2 2 0 0 0 2 2h12M7 13l3.5-3.5 3 3 2-2L21 15"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <a class="brand" href="#wardrobe" aria-label="Rewear Studio home">
+      <span class="brand-mark"><svg class="icon" aria-hidden="true"><use href="#i-hanger"/></svg></span>
+      <span class="brand-name">Rewear<span>STUDIO</span></span>
+    </a>
+    <nav class="primary-nav" aria-label="Main navigation">
+      <button class="nav-button active" type="button" data-view="wardrobe" aria-current="page"><svg class="icon" aria-hidden="true"><use href="#i-grid"/></svg><span>Finds</span></button>
+      <button class="nav-button" type="button" data-view="history"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><span>History</span><span class="nav-count" id="job-count" hidden>0</span></button>
+    </nav>
+    <button class="health-button" id="health-button" type="button" aria-label="View model and service status"><span class="status-dot checking" id="health-dot"></span><span id="health-summary">Connecting</span><svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></button>
+    <span class="meta-badge"><svg class="meta-logo" viewBox="0 0 100 28" aria-hidden="true"><path d="M9.7 7.2C7.5 7.2 5.8 9 4.5 11.3 2.5 14.7.9 19.6.9 22.6c0 2 .7 3.2 2.5 3.2 2.2 0 3.9-1.8 5.2-4.1 2-3.4 3.6-8.3 3.6-11.3 0-2-.7-3.2-2.5-3.2zm16.7 0c-2.2 0-3.9 1.8-5.2 4.1C19.2 14.7 17.6 19.6 17.6 22.6c0 2 .7 3.2 2.5 3.2 2.2 0 3.9-1.8 5.2-4.1 2-3.4 3.6-8.3 3.6-11.3 0-2-.7-3.2-2.5-3.2zM13 1.5c2.9 0 5.4 1.2 6.7 3.4C21 2.5 23.2 1.5 26 1.5c4.7 0 7.4 3.1 7.4 7.3 0 5.3-2.9 11.3-5.6 15-2.3 3.2-5 5.6-8.2 5.6-2.3 0-3.8-.9-4.8-2.4-1 1.5-2.5 2.4-4.8 2.4-3.2 0-5.9-2.4-8.2-5.6C-.9 20.1-2 14.1-2 8.8c0-4.2 2.7-7.3 7.4-7.3 2.8 0 5 1 6.3 3.4C13 2.7 13 1.5 13 1.5z" fill="currentColor" transform="translate(2 0) scale(.8)"/><text x="30" y="21" font-size="14" font-weight="600" fill="currentColor" font-family="system-ui,sans-serif">Meta AI</text></svg></span>
+    <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Switch language" hidden>EN / 中</button>
+    <button class="account-button" id="account-button" type="button" hidden><span id="account-display-name"></span><span class="account-button-label">Account</span></button>
+  </header>
+
+  <section class="account-bootstrap" id="account-bootstrap" role="alert" hidden><p id="account-bootstrap-message"></p><button class="button button-secondary" id="account-bootstrap-retry" type="button">Reconnect</button></section>
+  <main id="main-content" inert>
+    <section class="workspace-heading" aria-labelledby="page-title">
+      <div class="heading-copy"><div class="eyebrow">SEE IT. FIND IT. BUY IT.</div><h1 id="page-title">Spot an outfit you love? <span class="title-accent">Shop every piece<span class="title-dot">.</span></span></h1><p>Take a photo or import a batch. Meta AI finds each garment and where to buy it.</p></div>
+      <div class="wardrobe-totals" aria-label="Analysis results and statistics"><div><strong id="total-count">—</strong><span>analyzed</span></div><span class="total-divider"></span><div><strong id="usable-count">—</strong><span>items found</span></div><span class="total-divider"></span><div><strong id="attention-count">—</strong><span>need attention</span></div></div>
+    </section>
+
+    <div class="workspace-layout">
+      <aside class="collection-panel" aria-label="Upload photos">
+        <div class="panel-title"><span class="section-index">01 / UPLOAD</span><span class="tiny-label">any photo, any outfit</span></div>
+        <h2>Start with a photo.</h2>
+        <p class="panel-intro">Street style, group photos, selfies — turn any outfit into shopping links.</p>
+        <form id="upload-form">
+          <div class="drop-zone" id="drop-zone">
+            <input class="visually-hidden" id="file-input" name="file" type="file" multiple accept="image/jpeg,image/png,image/webp" aria-label="Import photos" aria-describedby="file-help queue-limits">
+            <input class="visually-hidden" id="camera-input" type="file" accept="image/*" capture="environment" aria-label="Take a photo">
+            <div class="capture-actions">
+              <label class="capture-button capture-primary" for="camera-input"><svg class="icon" aria-hidden="true"><use href="#i-camera"/></svg><span><strong><span class="touch-only">Take a photo</span><span class="pointer-only">Upload a photo</span></strong><small><span class="touch-only">Snap an outfit you see</span><span class="pointer-only">One outfit, every piece</span></small></span></label>
+              <label class="capture-button" for="file-input"><svg class="icon" aria-hidden="true"><use href="#i-images"/></svg><span><strong>Import photos</strong><small>Analyze up to 32 at once</small></span></label>
+            </div>
+            <label class="file-picker" for="file-input">
+              <span class="upload-art" id="upload-art"><svg viewBox="0 0 180 100" fill="none" aria-hidden="true"><path d="M36 81h110M90 18v10" stroke="currentColor" opacity=".2"/><path d="m73 37-22 12 9 20 11-5v25h38V64l11 5 9-20-22-12c-2 9-29 9-34 0Z" stroke="currentColor" stroke-width="1.5"/><path d="M83 23a7 7 0 1 1 10 6v7l30 17M93 36 59 53" stroke="currentColor" stroke-width="1.5"/><path d="M28 31v10m-5-5h10M147 67v7m-3.5-3.5h7" stroke="currentColor" opacity=".4"/></svg></span>
+              <span class="file-preview" id="file-preview" hidden></span>
+              <span class="file-label" id="file-label">or drop photos here</span>
+              <span class="file-choose" id="file-choose">or choose files <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+              <span class="file-help" id="file-help">JPG, PNG, WebP, MP4, MOV, WebM</span>
+            </label>
+            <button class="icon-button clear-file" id="clear-file" type="button" aria-label="Remove selected file" hidden><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+          </div>
+          <p class="queue-limits" id="queue-limits">Up to 32 files · 50 MB each · 256 MB total</p>
+          <div class="file-queue" id="file-queue" aria-label="Files to upload" hidden></div>
+          <fieldset class="mode-fieldset"><legend>What are you looking for?</legend><div class="mode-options"><label><input type="radio" name="mode" value="single"><span><svg class="icon" aria-hidden="true"><use href="#i-hanger"/></svg>Single Item</span></label><label><input type="radio" name="mode" value="rack"><span><svg class="icon" aria-hidden="true"><use href="#i-grid"/></svg>Multi / Video</span></label><label class="outfit-mode"><input type="radio" name="mode" value="outfit" checked><span><svg class="icon" aria-hidden="true"><use href="#i-image"/></svg>Street Style<span class="mode-detail">Find every piece from any life photo</span></span></label></div></fieldset>
+          <p class="capture-guidance" id="capture-guidance" hidden><svg class="icon" aria-hidden="true"><use href="#i-image"/></svg><span>Space hangers apart so necklines, cuffs and hems are fully visible. If garments overlap, photograph them one at a time.</span></p>
+          <label class="reconstruction-option" id="reconstruction-option" hidden><input id="upload-reconstruct" type="checkbox" checked><span>Generate 3 AI preview candidates<small>The original photo is sent to Meta (~US$0.03 per item). Pick the closest match; occluded or unseen parts are labeled as AI speculation. Original photo is always preserved.</small></span></label>
+          <div class="upload-discovery" id="upload-discovery-option" hidden><label class="reconstruction-option"><input id="upload-discover" type="checkbox" aria-describedby="upload-discovery-description"><span>Find where to buy<small id="upload-discovery-description">Check this to search for shopping links. You can also search per item later. AI previews are not used for brand or product matching.</small></span></label><div class="upload-market"><label class="field-label" for="upload-discovery-market">Shopping region</label><div class="select-wrap"><select id="upload-discovery-market" disabled><option value="TW">Taiwan</option><option value="global">Global</option></select><svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></div></div></div>
+          <label class="field-label" for="provider-select">Analysis model</label>
+          <div class="select-wrap"><select id="provider-select" name="provider" aria-describedby="provider-note provider-readiness"><option value="local">Glimmer · Local</option><option value="meta" selected>Spark · Meta Cloud</option></select><svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></div>
+          <p class="provider-note" id="provider-note">Local mode uses Ollama. Photos stay on this device.</p>
+          <div class="provider-recovery" id="provider-recovery"><p id="provider-readiness" role="status">Checking model connection…</p><p id="provider-cloud-disclosure" hidden>Switching to cloud will send photos or videos to Meta.</p><div class="provider-recovery-actions"><button class="button button-secondary" id="provider-use-cloud" type="button" hidden>Use Meta Cloud</button><button class="text-button" id="provider-recheck" type="button" disabled>Checking…</button></div></div>
+          <details class="advanced-options"><summary>Advanced<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary><label class="field-label" for="concept-input">Segmentation target</label><input id="concept-input" name="concept" value="garment" maxlength="100" placeholder="e.g. garment"><p class="helper-text">Multi-item and video modes use this label for SAM.</p></details>
+          <p class="inline-error" id="upload-error" role="alert" hidden></p>
+          <button class="button button-primary upload-button" id="upload-button" type="submit" disabled hidden><span>Analyze photos</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        </form>
+        <div class="sample-entry"><span class="sample-stamp">TRY IT</span><div><h3>Try it first.</h3><p>Load 3 sample items to see the full flow.</p><button class="text-button" id="demo-button" type="button">Load demo items <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button><p class="sample-credit">Photos: <a href="https://www.pexels.com/photo/man-people-street-dark-4400994/" target="_blank" rel="noopener">Jose Vasquez</a>, <a href="https://www.pexels.com/photo/flatlay-shot-of-person-in-white-button-up-shirt-and-denim-jeans-7752669/" target="_blank" rel="noopener">Arina Krasnikova</a>, <a href="https://www.pexels.com/photo/fashion-people-woman-girl-9545369/" target="_blank" rel="noopener">Ferdinand Studio</a> · Pexels<br>Full garments from a saved analysis. No new model run.</p></div></div>
+        <details class="generate-entry" id="generate-entry"><summary><svg class="icon" aria-hidden="true"><use href="#i-spark"/></svg><span>Generate a garment with AI</span><svg class="icon chevron" aria-hidden="true"><use href="#i-chevron"/></svg></summary><form id="generate-form"><label class="field-label" for="generate-prompt">Describe the garment</label><textarea id="generate-prompt" rows="3" minlength="10" maxlength="2000" placeholder="e.g. cream cotton shirt, flat lay on light background" required></textarea><p class="helper-text">Uses Meta AI to generate, then analyzes with the model and mode above. Image is sent to cloud.</p><p class="provider-note" id="generate-availability" role="status">Checking model connection…</p><p class="inline-error" id="generate-error" role="alert" hidden></p><button class="button button-secondary" id="generate-button" type="submit" disabled>Generate &amp; Analyze<svg class="icon" aria-hidden="true"><use href="#i-spark"/></svg></button></form></details>
+        <div class="tech-stack"><div class="tech-stack-label">Powered by</div><div class="tech-chips"><span class="tech-chip sam">SAM 3.1<small>Segmentation</small></span><span class="tech-chip spark">Spark 1.3<small>Understanding</small></span><span class="tech-chip muse">Image 1.0<small>Generation</small></span></div></div>
+        <div class="local-footnote"><svg class="icon" aria-hidden="true"><use href="#i-monitor"/></svg><span>Your data stays local. Export anytime.</span></div>
+      </aside>
+
+      <section class="catalogue-panel" aria-label="Outfit workspace">
+        <div class="storage-alert" id="storage-alert" role="status" hidden><p id="storage-alert-message"></p><button class="text-button" id="storage-manage" type="button">Manage storage</button></div>
+        <div class="service-error" id="service-error" role="alert" hidden><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg><div><strong>Cannot load catalog</strong><p id="service-error-message"></p></div><button class="text-button" id="refresh-button" type="button">Retry</button></div>
+        <div class="active-job" id="active-job" hidden aria-live="polite"></div>
+        <div class="active-batch" id="active-batch" hidden aria-live="polite"></div>
+
+        <div id="wardrobe-view">
+          <div class="catalogue-title-row"><div><span class="section-index">02 / YOUR OUTFITS</span><h2><span id="catalogue-heading">Your finds</span> <span class="list-count" id="visible-count">0</span></h2></div><details class="export-menu"><summary class="button button-quiet"><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg><span>Export</span></summary><div class="export-options"><a href="/api/export?format=csv" download>CSV Spreadsheet<svg class="icon" aria-hidden="true"><use href="#i-download"/></svg></a><a href="/api/export?format=json" download>JSON Full Data<svg class="icon" aria-hidden="true"><use href="#i-download"/></svg></a></div></details></div>
+          <div class="catalogue-tools"><label class="search-box"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><input id="search-input" type="search" placeholder="Search items, brands, colors..." aria-label="Search items, brands, or colors" autocomplete="off"><kbd>/</kbd></label><div class="select-wrap category-filter"><select id="category-filter" aria-label="Filter by category"><option value="">All Categories</option><option value="top">Tops</option><option value="bottom">Bottoms</option><option value="dress">Dresses</option><option value="outerwear">Outerwear</option><option value="onesie">One-Piece</option><option value="sleepwear">Sleepwear</option><option value="shoes">Shoes</option><option value="accessory">Accessories</option><option value="other">Other</option></select><svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></div></div>
+          <div class="review-tabs" role="group" aria-label="Filter by review status"><button class="review-tab active" type="button" data-review="all" aria-pressed="true">All</button><button class="review-tab" type="button" data-review="pending" aria-pressed="false">Pending<span class="tab-count" id="pending-count">0</span></button><button class="review-tab" type="button" data-review="reviewed" aria-pressed="false">Reviewed<span class="tab-count" id="reviewed-count">0</span></button><button class="review-tab quality-filter" type="button" data-review="attention" aria-pressed="false">Needs Attention<span class="tab-count" id="attention-tab-count">0</span></button></div>
+          <div class="lifestyle-tools"><button class="text-button" type="button" data-review="confirmation" id="confirmation-filter" aria-pressed="false">Outfits to confirm <span class="tab-count" id="confirmation-count">0</span></button><button class="text-button" id="duplicates-button" type="button">Similar items <span class="tab-count" id="duplicates-count">0</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+          <div class="quality-notice" id="quality-notice" hidden></div>
+          <div id="results-banner" aria-live="polite" hidden></div>
+          <div id="items-region" aria-busy="true"><div class="loading-state"><span class="spinner"></span><p>Loading your wardrobe...</p></div></div>
+          <div class="catalogue-footer"><span>COLLECT WITH CARE. REWEAR WITH LOVE.</span><span id="catalogue-footer-count">Rewear Studio</span></div>
+        </div>
+
+        <div id="history-view" hidden><div class="catalogue-title-row"><div><span class="section-index">03 / THE PROCESS</span><h2>History <span class="list-count" id="history-count">0</span></h2></div><button class="button button-quiet" id="history-refresh" type="button"><svg class="icon" aria-hidden="true"><use href="#i-refresh"/></svg>Refresh</button></div><p class="history-intro">Every analysis is traceable. View batch progress, sources, and results.</p><div id="batches-region"></div><div id="jobs-region" aria-busy="true"></div></div>
+      </section>
+    </div>
+    <footer class="site-footer"><span class="footer-brand">Rewear <span>STUDIO</span></span><p>Every outfit tells a story. Find yours.</p><span class="footer-meta">Powered by Meta SAM 3.1 · Muse Spark 1.3 · Muse Image 1.0</span></footer>
+  </main>
+
+  <dialog class="item-dialog" id="item-dialog" aria-labelledby="item-dialog-title"><button class="icon-button dialog-close" type="button" data-close="item-dialog" aria-label="Close item details"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button><div id="item-dialog-body"></div></dialog>
+  <dialog class="job-dialog" id="job-dialog" aria-labelledby="job-dialog-title"><button class="icon-button dialog-close" type="button" data-close="job-dialog" aria-label="Close job details"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button><div id="job-dialog-body"></div></dialog>
+  <dialog class="person-dialog" id="person-dialog" aria-labelledby="person-dialog-title"><button class="icon-button dialog-close" type="button" data-close="person-dialog" aria-label="Close person selection"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button><div class="dialog-heading"><span class="section-index">ONE PERSON, THEIR WARDROBE</span><h2 id="person-dialog-title">Select the person to analyze</h2><p id="person-filename"></p><p>Draw a box around the target person in the photo. For group photos, select one person first; without a selection the entire photo is analyzed. No identity recognition is performed.</p></div><div class="person-stage-wrap"><div id="person-stage" class="person-stage"><img id="person-photo" alt="Select the person whose outfit to analyze"><div id="person-box" class="person-box" tabindex="0" role="group" aria-label="Person selection box; arrow keys to move, Shift+arrow to resize" hidden><span>Target</span></div></div></div><p class="helper-text">You can also set the region with the percentage fields below. After selection, use arrow keys to move, Shift+arrow to resize.</p><div class="person-coordinates" id="person-coordinates"><label>Left %<input id="person-left" type="number" min="0" max="100" step="0.1"></label><label>Top %<input id="person-top" type="number" min="0" max="100" step="0.1"></label><label>Right %<input id="person-right" type="number" min="0" max="100" step="0.1"></label><label>Bottom %<input id="person-bottom" type="number" min="0" max="100" step="0.1"></label></div><p class="inline-error" id="person-error" role="alert" hidden></p><div class="person-actions"><button class="text-button" id="person-default" type="button">Create selection</button><button class="text-button" id="person-clear" type="button">Clear selection</button><button class="button button-primary" id="person-save" type="button">Apply to this photo</button></div></dialog>
+  <dialog class="job-dialog batch-dialog" id="batch-dialog" aria-labelledby="batch-dialog-title"><button class="icon-button dialog-close" type="button" data-close="batch-dialog" aria-label="Close batch details"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button><div id="batch-dialog-body"></div></dialog>
+  <dialog class="duplicates-dialog" id="duplicates-dialog" aria-labelledby="duplicates-dialog-title"><button class="icon-button dialog-close" type="button" data-close="duplicates-dialog" aria-label="Close similar items"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button><div class="dialog-heading"><span class="section-index">THE SAME PIECE, ANOTHER DAY</span><h2 id="duplicates-dialog-title">Similar items — your call.</h2><p>Compare garments across different photos. Items are merged only after you confirm; all source photos and original records are preserved.</p></div><div id="duplicates-body"></div></dialog>
+  <dialog class="status-dialog" id="status-dialog" aria-labelledby="status-dialog-title"><button class="icon-button dialog-close" type="button" data-close="status-dialog" aria-label="Close status"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button><div class="dialog-heading"><span class="section-index">WORKSPACE STATUS</span><h2 id="status-dialog-title">Models &amp; Services</h2><p>Model availability and processing limits for this device.</p></div><div id="status-dialog-body"></div><button class="button button-secondary" id="health-refresh" type="button"><svg class="icon" aria-hidden="true"><use href="#i-refresh"/></svg>Refresh</button></dialog>
+  <dialog class="confirm-dialog" id="confirm-dialog" aria-labelledby="confirm-title"><span class="confirm-icon"><svg class="icon" aria-hidden="true"><use href="#i-trash"/></svg></span><h2 id="confirm-title">Delete this item?</h2><p id="confirm-message"></p><div class="confirm-actions"><button class="button button-secondary" id="confirm-cancel" type="button">Keep</button><button class="button button-danger" id="confirm-submit" type="button">Delete</button></div></dialog>
+  <dialog class="account-dialog" id="account-dialog" aria-labelledby="account-title">
+    <div class="account-dialog-toolbar"><button class="icon-button dialog-close" type="button" data-close="account-dialog" aria-label="Close account"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button></div>
+    <div class="dialog-heading"><span class="section-index">YOUR ACCOUNT</span><h2 id="account-title">Account</h2><p id="account-identity"></p></div>
+    <p class="account-note">Your account name is not a verified email. Keep the recovery code provided when you created your account.</p>
+    <section class="account-storage" id="account-storage" aria-labelledby="storage-title">
+      <div class="storage-heading"><h3 id="storage-title" tabindex="-1">Storage</h3><button class="text-button" id="storage-refresh" type="button">Refresh</button></div>
+      <p class="account-note" id="storage-loading" role="status" hidden>Loading usage…</p>
+      <dl class="storage-usage" id="storage-usage"><div><dt>Saved jobs</dt><dd id="storage-jobs">—</dd></div><div><dt>Media files</dt><dd id="storage-bytes">—</dd></div></dl>
+      <p class="account-note" id="storage-reserved" hidden></p>
+      <p class="account-note">Media includes photos, videos, generated images and pending cleanup files. In-progress jobs reserve additional space.</p>
+      <p class="inline-error" id="storage-error" role="alert" hidden></p>
+      <div class="storage-pending" id="storage-pending" hidden><p id="storage-cleanup-message"></p><button class="button button-secondary" id="storage-cleanup" type="button">Retry cleanup</button></div>
+      <button class="text-button" id="storage-history" type="button">Go to history to remove unneeded jobs</button>
+    </section>
+    <form id="password-form" novalidate><h3>Change Password</h3><label for="current-password">Current password</label><input id="current-password" type="password" autocomplete="current-password" required><label for="new-password">New password</label><input id="new-password" type="password" autocomplete="new-password" required aria-describedby="new-password-help"><p class="account-note" id="new-password-help">12–128 characters, Unicode allowed. Other sessions will be invalidated.</p><label for="confirm-password">Confirm new password</label><input id="confirm-password" type="password" autocomplete="new-password" required><p class="inline-error" id="password-error" role="alert" hidden></p><p class="account-success" id="password-success" role="status" hidden></p><button class="button button-primary" type="submit">Save Password</button></form>
+    <div class="account-logout"><p>Logging out will clear this tab's data and unsaved drafts.</p><p class="inline-error" id="logout-error" role="alert" hidden></p><button class="button button-secondary" id="logout-button" type="button">Log Out</button></div>
+  </dialog>
+  <dialog class="account-dialog session-dialog" id="session-dialog" aria-labelledby="session-title"><div class="dialog-heading"><span class="section-index">YOUR WORK IS STILL HERE</span><h2 id="session-title">Please log in again.</h2><p id="session-message">Your session has expired. Unsaved drafts on this page are preserved — log in to the same account to continue.</p></div><form id="reauth-form" novalidate><label for="reauth-username">Account for this draft</label><input id="reauth-username" type="text" autocomplete="username" readonly><label for="reauth-password">Password</label><input id="reauth-password" type="password" autocomplete="current-password" required><p class="inline-error" id="reauth-error" role="alert" hidden></p><button class="button button-primary" type="submit">Log in &amp; keep drafts</button></form><button class="text-button session-leave" id="session-leave" type="button">Discard drafts and return to login</button></dialog>
+  <label class="capture-fab" for="camera-input" aria-label="Take a photo"><svg class="icon" aria-hidden="true"><use href="#i-camera"/></svg></label>
+  <div class="toast-region" id="toast-region" role="status" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>

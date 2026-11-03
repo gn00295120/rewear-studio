@@ -1,0 +1,9 @@
+include README.md pyproject.toml uv.lock .env.example
+include .dockerignore deploy/Dockerfile deploy/Caddyfile deploy/compose.yaml deploy/env.example deploy/requirements.lock
+recursive-include docs *.md
+recursive-include scripts *.py
+recursive-include tests *.py
+recursive-include wardrobe/static *.html *.css *.js
+recursive-include wardrobe/demo *.jpg *.json *.md
+include wardrobe/garment_schema.json
+global-exclude *.py[cod]

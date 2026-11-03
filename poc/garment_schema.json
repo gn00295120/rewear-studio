@@ -1,0 +1,92 @@
+{
+ "type": "object",
+ "additionalProperties": false,
+ "properties": {
+  "category": {
+   "type": "string",
+   "enum": [
+    "top",
+    "bottom",
+    "dress",
+    "outerwear",
+    "onesie",
+    "sleepwear",
+    "shoes",
+    "accessory",
+    "other"
+   ]
+  },
+  "subtype": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "brand": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "size_label": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "colors": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "pattern": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "material_guess": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "condition": {
+   "type": "string",
+   "enum": [
+    "new_with_tags",
+    "like_new",
+    "good",
+    "fair",
+    "poor",
+    "unknown"
+   ]
+  },
+  "defects": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "confidence": {
+   "type": "number"
+  },
+  "needs_review": {
+   "type": "boolean"
+  }
+ },
+ "required": [
+  "category",
+  "subtype",
+  "brand",
+  "size_label",
+  "colors",
+  "pattern",
+  "material_guess",
+  "condition",
+  "defects",
+  "confidence",
+  "needs_review"
+ ]
+}

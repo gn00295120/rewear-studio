@@ -1,0 +1,55 @@
+{
+  "jacket.jpg": {
+    "record": {
+      "category": "outerwear",
+      "subtype": "denim jacket",
+      "brand": null,
+      "size_label": null,
+      "colors": [
+        "blue",
+        "grey"
+      ],
+      "pattern": null,
+      "material_guess": "denim",
+      "condition": "unknown",
+      "defects": [],
+      "confidence": 0.8,
+      "needs_review": true
+    }
+  },
+  "shirt.jpg": {
+    "record": {
+      "category": "top",
+      "subtype": "button-up shirt",
+      "brand": null,
+      "size_label": null,
+      "colors": [
+        "white"
+      ],
+      "pattern": "solid",
+      "material_guess": null,
+      "condition": "unknown",
+      "defects": [],
+      "confidence": 0.8,
+      "needs_review": true
+    }
+  },
+  "dress.jpg": {
+    "record": {
+      "category": "dress",
+      "subtype": "maxi dress",
+      "brand": null,
+      "size_label": null,
+      "colors": [
+        "black",
+        "white"
+      ],
+      "pattern": "floral",
+      "material_guess": "chiffon",
+      "condition": "unknown",
+      "defects": [],
+      "confidence": 0.8,
+      "needs_review": true
+    }
+  }
+}

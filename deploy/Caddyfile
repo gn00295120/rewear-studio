@@ -1,0 +1,6 @@
+{$REWEAR_DOMAIN} {
+	request_body {
+		max_size 257MiB
+	}
+	reverse_proxy 127.0.0.1:8765
+}

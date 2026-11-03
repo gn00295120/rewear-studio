@@ -1,0 +1,8 @@
+*
+!deploy/
+deploy/**
+!deploy/requirements.lock
+!deploy/Dockerfile
+!dist/
+dist/**
+!dist/rewear_studio-1.0.0-py3-none-any.whl

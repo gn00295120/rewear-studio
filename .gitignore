@@ -1,0 +1,19 @@
+.venv/
+out/
+samples/
+*.env
+__pycache__/
+data/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+.DS_Store
+.env
+
+# Local-only data and large media (the demo video goes to YouTube; earlier cuts stay local)
+data-hosted-preview/
+media/archive/
+media/production/build/
+submission/*.mp4

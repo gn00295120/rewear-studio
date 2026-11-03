@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Rewear — Shop this look</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <span class="mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6a3 3 0 1 1 4 2.8V11l8 5a1 1 0 0 1-.5 2H3.5a1 1 0 0 1-.5-2l10-6"/></svg></span>
+    <div>
+      <h1>Shop this look</h1>
+      <p>Rewear Studio · Meta AI</p>
+    </div>
+  </header>
+  <ol class="steps">
+    <li>Hover any outfit photo while you browse.</li>
+    <li>Click <strong>Shop this look</strong> (or right-click the photo).</li>
+    <li>Rewear finds every piece and where to shop it.</li>
+  </ol>
+  <form id="settings">
+    <label for="url">Rewear Studio address</label>
+    <div class="row">
+      <input id="url" type="url" required spellcheck="false" placeholder="http://127.0.0.1:8765/">
+      <button type="submit">Save</button>
+    </div>
+  </form>
+  <p class="status" id="status" role="status">Checking Rewear…</p>
+  <button class="open" id="open" type="button">Open Rewear Studio</button>
+  <p class="privacy">Only the photo you click is sent, and only to this address. Nothing runs in the background.</p>
+  <script src="popup.js"></script>
+</body>
+</html>
