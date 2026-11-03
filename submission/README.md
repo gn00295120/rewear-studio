@@ -29,7 +29,7 @@ Chrome extension: load rewear-chrome-extension.zip (unpacked), set its address t
 in the extension popup, sign in once, then hover any outfit photo and click "Shop this look".
 ```
 
-帳號密碼只寫在提交表單，不要寫進這個資料夾或 repo。
+帳號密碼只寫在提交表單，不要寫進這個資料夾或 repo。建立者的電腦上另有 `SUBMISSION_FORM.md`（每個欄位可直接貼上的英文內容，含評審密碼），已列在 `.gitignore`，不會上傳。
 
 ## 影片內容
 

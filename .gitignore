@@ -17,3 +17,6 @@ data-hosted-preview/
 media/archive/
 media/production/build/
 submission/*.mp4
+
+# Local-only submission form (contains the judge password)
+submission/SUBMISSION_FORM.md
