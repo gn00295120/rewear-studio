@@ -75,6 +75,11 @@
   `--daily-spend-limit-usd` 依費用帳本計算最近 24 小時，超過後新分析／重試／預覽／AI 查找回 429，只影響該帳號，24 小時前的花費不計。
   新增 17 項測試（網站模式 9、CLI 8），完整回歸 **1,610 passed**。另以無頭 Chromium 實際啟動 managed 網站：登入頁只剩 Sign In、
   顯示主辦方帳號說明，評審帳號登入後帳號管理不顯示改密碼，390px 手機無水平捲動；順手修正手機版登入頁標題少一個空格。
+- 評審網站上線（2026-11-03）：GCP `rewear-hackathon-2026` 的 VM `rewear-site`（e2-medium，Python 3.12）以 systemd 執行，
+  Cloudflare Tunnel 接 `rewear.soraing.com`。由公開網址實測：`judge` 帳號 iPhone 版登入正常、無頁面錯誤；另一個測試帳號以
+  真實模型分析一張照片 62 秒得到 1 件（Ruched spaghetti strap dress）。切換前在本機 Mac 以同一 tunnel 實測一張照片 60 秒得到 3 件。
+  另修正：登入頁表單改為 POST（腳本未載入前送出也不會把帳密放進網址）、擴充功能可連線上網站並在需要時提示先登入；
+  完整回歸 **1,612 passed**，擴充功能端對端測試連續 12 次通過。
 
 ## 固定 100 張網路生活照測試：2026-10-23
 

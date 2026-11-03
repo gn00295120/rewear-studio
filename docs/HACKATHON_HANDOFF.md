@@ -199,7 +199,7 @@ Shop this look → Rewear 即時分析出 8 件 → Muse Image 預覽 → 詳情
 ## 對外提交前只需填入的外部資料
 
 - Repository URL：`TODO`
-- Public demo URL：`TODO`（選用）。部署方式與評審帳號見 `docs/HOSTED_OPERATIONS.md`「評審／Demo 網站」：`--accounts managed` 不開放註冊，`rewear account create` 建評審帳號，`--daily-spend-limit-usd` 設每帳號每日上限；網址與帳密只填在提交表單的測試說明，不寫進 repo。
+- Public demo URL：<https://rewear.soraing.com>（GCP VM `rewear-site` ＋ Cloudflare Tunnel；`--accounts managed`、每帳號每日 US$5 上限）。評審帳號 `judge`，密碼在建立者 Mac 鑰匙圈，只填在提交表單的測試說明。維運方式見 `docs/HOSTED_OPERATIONS.md`。
 - Demo video URL：`TODO`（把 `submission/rewear-demo.mp4` 上傳 YouTube，並加上 `submission/rewear-demo.en.srt` 字幕後填入）。早期剪輯（新介面手機實錄 `demo-ui-flow.mp4`、POV 短片、舊介面 `demo-video.mp4` 等）已移到 `media/archive/`。
 - Team／成員資料：`TODO`
 - 活動官方欄位、截止時間與 Codex session ID：待連接正確 Devpost 活動後，依官方要求填入

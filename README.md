@@ -90,7 +90,7 @@ rewear account create --hosted-data-dir <dir> --username judge
 rewear --hosted --public-origin https://<domain> --hosted-data-dir <dir> --accounts managed --daily-spend-limit-usd 5
 ```
 
-The live demo runs this way behind a Cloudflare Tunnel. Operations, Docker/HTTPS deployment and backups:
+The live demo runs this way on a Google Cloud VM behind a Cloudflare Tunnel. Operations, Docker/HTTPS deployment and backups:
 [`docs/HOSTED_OPERATIONS.md`](docs/HOSTED_OPERATIONS.md).
 
 ## Quality and honesty
@@ -188,7 +188,7 @@ Rewear 會開啟並自動分析這一張照片。只有按下時才傳送該張�
 
 網站模式包含註冊、登入、一次性復原碼、密碼變更、私人衣櫃、容量管理及媒體清理。
 正式 HTTPS、容器安裝、容量參數、離線備份與還原方法見
-[網站模式與維運](docs/HOSTED_OPERATIONS.md)。評審試用網站已以 `--accounts managed` 部署在 <https://rewear.soraing.com>（Cloudflare Tunnel）；既有本機資料不會自動公開或移入帳號。
+[網站模式與維運](docs/HOSTED_OPERATIONS.md)。評審試用網站已以 `--accounts managed` 部署在 <https://rewear.soraing.com>（GCP VM ＋ Cloudflare Tunnel）；既有本機資料不會自動公開或移入帳號。
 
 目前預設的低成本重建會以一次 Muse Image 請求產生三張完整候選，標準生成費率估算約
 **US$0.03／件**；使用者選圖後會持久保存，但候選仍標示為 AI 推測。最新工程基準先從 Pexels

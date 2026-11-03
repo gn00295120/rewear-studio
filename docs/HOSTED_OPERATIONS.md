@@ -51,6 +51,32 @@ rewear --hosted --public-origin https://你的網域 --hosted-data-dir /absolute
   這是應用程式內的保險，最終上限請另外在 Meta 開發者後台的 Billing 頁面設定。
 - 帳號名稱與密碼只放在提交表單給評審的欄位，不要寫進公開 repo。
 
+## 目前的評審網站：GCP VM ＋ Cloudflare Tunnel
+
+<https://rewear.soraing.com> 跑在 GCP 專案 `rewear-hackathon-2026` 的 VM `rewear-site`（asia-east1-b，e2-medium，
+Debian 12，20 GB 硬碟，Python 3.12）。VM 不開放任何網站連入埠，流量由 Cloudflare Tunnel `rewear-hackathon` 主動連出接入，
+DNS 是 `rewear` 指向該 tunnel 的 CNAME。
+
+| 項目 | 位置 |
+| --- | --- |
+| 程式 | `/opt/rewear/app`（`rewear` 系統帳號從 GitHub clone，`uv sync --frozen --no-dev --python 3.12`） |
+| 資料 | `/var/lib/rewear/site`（帳號與衣櫃，保存在硬碟） |
+| Meta 金鑰 | `/etc/rewear/env`（root:rewear 640），不在 repo、不在指令參數 |
+| Tunnel token | `/etc/rewear/tunnel.env`（root 600） |
+| 服務 | `rewear.service`（`--accounts managed --daily-spend-limit-usd 5 --max-accounts 20`）、`rewear-tunnel.service` |
+
+常用操作（在本機執行）：
+
+```sh
+G="gcloud compute ssh rewear-site --project rewear-hackathon-2026 --zone asia-east1-b --command"
+$G "sudo journalctl -u rewear -n 50 --no-pager"     # 網站紀錄
+$G "sudo -u rewear git -C /opt/rewear/app pull --ff-only && sudo -u rewear sh -c 'cd /opt/rewear/app && /opt/rewear/.local/bin/uv sync --frozen --no-dev --python 3.12' && sudo systemctl restart rewear"   # 更新程式
+$G "sudo -u rewear /opt/rewear/app/.venv/bin/rewear account create --hosted-data-dir /var/lib/rewear/site --username judge-2"  # 再發一組評審帳號
+```
+
+評審 `judge` 帳號的密碼存在建立者 Mac 的鑰匙圈（`security find-generic-password -s rewear.soraing.com -a judge -w`），
+只填在提交表單。評審期結束後可整個刪除 GCP 專案停止計費；Cloudflare 上的 tunnel 與 `rewear` DNS 記錄也一併刪除。
+
 ## 容量與工作限制
 
 啟動參數可調整：

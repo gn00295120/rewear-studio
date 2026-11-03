@@ -15,16 +15,18 @@ Meta Global Hackathon 2026 需要上傳或填寫的檔案都在這裡。
 2. 在 Cerebral Valley 提交頁填入（截止：美東 11/4 21:00＝台灣 11/5 10:00）：影片網址、公開 Repository URL、團隊資料（細節見 [`docs/HACKATHON_HANDOFF.md`](../docs/HACKATHON_HANDOFF.md)）。
 3. 若評審要試用擴充功能，附上 `rewear-chrome-extension.zip`，並說明需先在本機執行 `uv run rewear`。
 
-## 評審試用網站（選用）
+## 評審試用網站
 
-若要讓評審實際操作，以網站模式部署並只發評審帳號，指令見
-[`docs/HOSTED_OPERATIONS.md`](../docs/HOSTED_OPERATIONS.md) 的「評審／Demo 網站」。在提交表單的測試說明欄填入：
+已部署在 <https://rewear.soraing.com>（GCP VM ＋ Cloudflare Tunnel，不開放註冊）。密碼用這個指令從鑰匙圈取出：
+`security find-generic-password -s rewear.soraing.com -a judge -w`。在提交表單的測試說明欄填入：
 
 ```text
-Live demo: https://<your-domain>
-Judge login: <username> / <password>   (shared account; please don't change it — the site doesn't allow it anyway)
-Tip: try "Take a photo" on a phone, or "Import photos" with any street-style photo.
-Each account has a daily analysis allowance; analysis takes about 30–90 seconds per photo.
+Live demo: https://rewear.soraing.com
+Judge login: judge / <password>   (shared account; the site doesn't allow changing it)
+Tip: on a phone tap "Take a photo"; on a laptop use "Upload a photo" or "Import photos" with any street-style photo.
+Analysis takes about 30–90 seconds per photo; each account has a daily allowance.
+Chrome extension: load rewear-chrome-extension.zip (unpacked), set its address to https://rewear.soraing.com/
+in the extension popup, sign in once, then hover any outfit photo and click "Shop this look".
 ```
 
 帳號密碼只寫在提交表單，不要寫進這個資料夾或 repo。
