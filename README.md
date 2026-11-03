@@ -120,7 +120,9 @@ The live demo runs this way on a Google Cloud VM behind a Cloudflare Tunnel. Ope
 
 ## License
 
-MIT — see [`LICENSE`](LICENSE). Third-party photos keep their own licenses (Pexels License).
+MIT — see [`LICENSE`](LICENSE). Third-party photos in `media/production/feed/` and `wardrobe/demo/` keep their own
+licenses (Pexels License); the credits are in [`wardrobe/demo/ATTRIBUTION.md`](wardrobe/demo/ATTRIBUTION.md) and under
+each photo on the demo feed page.
 
 ---
 
@@ -515,3 +517,8 @@ uv run python scripts/verify_live.py samples/commons/rack.jpg --provider meta --
 參考：[FastAPI 檔案上傳](https://fastapi.tiangolo.com/tutorial/request-files/)、
 [Ollama 結構化輸出](https://docs.ollama.com/capabilities/structured-outputs)、
 [Meta SAM 3.1](https://ai.meta.com/blog/segment-anything-model-3/)。
+
+## 授權
+
+MIT，見 [`LICENSE`](LICENSE)。`media/production/feed/` 與 `wardrobe/demo/` 的第三方照片沿用各自的授權（Pexels License），
+出處列在 [`wardrobe/demo/ATTRIBUTION.md`](wardrobe/demo/ATTRIBUTION.md) 與示範動態牆每張照片下方。
