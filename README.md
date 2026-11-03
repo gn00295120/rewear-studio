@@ -12,6 +12,9 @@ shopping links say "similar", never "the same item".
 - **Chrome extension "Shop this look":** [`extension/`](extension/README.md)
 - Built for the **Meta Global AI Developer Hackathon 2026**
 
+> **Timeline:** preparation Oct 21–23 (an early prototype of the pipeline and internal benchmarks); hackathon build
+> Oct 26 – Nov 4. What was built when: [Built during the hackathon](#built-during-the-hackathon-oct-26--nov-4-2026).
+
 ## How it works
 
 1. Take a photo, import up to 32 photos, or click **Shop this look** on any photo while you browse.
@@ -129,6 +132,9 @@ AI 預覽一律標示，購物連結只說「相似款」，不宣稱是同一�
 - **線上試用：** <https://rewear.soraing.com>（評審帳號寫在提交表單）
 - **Demo 影片與提交檔案：** [`submission/`](submission/README.md)（1:41，英文旁白與字幕）
 - **Chrome 擴充功能「Shop this look」：** [`extension/`](extension/README.md)
+
+> **時程：** 10/21–10/23 為準備期（流程的早期原型與內部基準），10/26–11/4 為活動期間開發。各項成果的時間見
+> [活動期間完成的工作](#活動期間完成的工作)。
 
 預設為本機模式，另可明確啟用帳號隔離的網站模式。實測數字、截圖與誠實限制整理在
 [Hackathon 交付稿](docs/HACKATHON_HANDOFF.md)。`docs/` 引用的驗證證據在 `out/`（約 2 GB 的測試輸出與第三方
