@@ -1,21 +1,44 @@
 # Rewear Studio — See It. Find It. Buy It.
 
-Turn any life photo, street style shot, or short video into a shoppable outfit breakdown powered by Meta AI (SAM 3.1 + Muse Spark + Muse Image).
+**English** · [中文](#中文說明)
 
-Upload a photo → AI segments every garment → identifies attributes → connects you to shopping links. What makes Rewear different: we separate what the AI sees from what it guesses — zero false positives auto-published.
+Rewear Studio turns any outfit photo — a street-style snap, a friend's post, a short video — into a shoppable
+breakdown of every piece, powered by **Meta SAM 3.1, Muse Spark 1.3 and Muse Image 1.0**. It keeps what the AI saw
+apart from what it guessed: unclear regions are flagged instead of guessed, AI previews are always labeled, and
+shopping links say "similar", never "the same item".
 
-預設為本機模式，另可明確啟用帳號隔離的網站模式。
+- **Live demo:** <https://rewear.soraing.com> (the judge login is in the submission form)
+- **Demo video** (1:41, English narration and subtitles): [`submission/`](submission/README.md)
+- **Chrome extension "Shop this look":** [`extension/`](extension/README.md)
+- Built for the **Meta Global AI Developer Hackathon 2026**
 
-Meta Hackathon 的本機最終交付、90 秒評審動線、實測數字、截圖與誠實限制整理在
-[Hackathon 交付稿](docs/HACKATHON_HANDOFF.md)；機器可讀的最終閘門與版本雜湊則在
-[最終交付索引](out/verification/final-hackathon-closeout-20261023/FINAL_DELIVERY.md)。這些檔案是本機交付材料，
-不代表已送出或已公開部署。
+## How it works
 
-**Demo 影片與提交檔案**都在 [`submission/`](submission/README.md)：主影片 `rewear-demo.mp4`（1:41，英文旁白與字幕）、
-字幕燒在畫面上的版本、YouTube 用的 SRT，以及 Chrome 擴充功能壓縮檔。影片製作流程與原始素材在
-[`media/production/`](media/production/README.md)，早期剪輯在 `media/archive/`。
+1. Take a photo, import up to 32 photos, or click **Shop this look** on any photo while you browse.
+2. Muse Spark 1.3 lists the visible garments. For each one, SAM 3.1 segments it from a text prompt such as
+   "blue denim jacket" and returns a pixel mask.
+3. Muse Spark 1.3 reads every cut-out piece — category, specific style name, colors, pattern, fabric — with a
+   confidence score. Pieces it can't read reliably are flagged and kept out of the results.
+4. Muse Image 1.0 previews the complete garment (three candidates, about US$0.03 per piece), always shown next to
+   the original photo and labeled as AI.
+5. Every piece links to Google Shopping, Bing Shopping and web search for similar items at no model cost. An
+   optional AI search looks for the brand's product page and lists only results that pass verification.
 
-`docs/` 引用的驗證證據在 `out/`（約 2 GB 的測試輸出與第三方測試照片），只保留在本機，沒有放進這個 repo；結果摘要見 [`docs/VERIFICATION.md`](docs/VERIFICATION.md)。
+SAM 3.1 is called through the OpenAI-compatible Meta Model API (`wardrobe/providers.py`):
+
+```python
+client = AsyncOpenAI(base_url="https://api.meta.ai/v1", api_key=MODEL_API_KEY)
+stream = await client.responses.create(
+    model="sam-3.1",
+    stream=True,
+    input=[{"type": "message", "role": "user", "content": [
+        {"type": "input_text", "text": "blue denim jacket"},
+        {"type": "input_image", "image_url": "data:image/jpeg;base64,..."},
+    ]}],
+    metadata={"mask_encoding": "one_bit"},
+)
+# meta-sam-parser turns the stream into one box and one 1-bit mask per object
+```
 
 ## Built during the hackathon (Oct 26 – Nov 4, 2026)
 
@@ -39,7 +62,97 @@ in the demo video (90/100 identified, 85/100 faithful previews) come from that p
 In numbers: 22 of 33 source files under `wardrobe/` and 30 of 48 test files were changed or added during the
 event, and `extension/` is entirely new.
 
-## 啟動
+## Quick start
+
+Requires Python 3.12+ (and `ffmpeg` for video).
+
+```sh
+uv sync --extra dev
+export MODEL_API_KEY=...   # or save it in ~/.config/meta/model_api_key
+uv run rewear              # http://127.0.0.1:8765
+uv run rewear --lan        # also serve the Wi-Fi address, to test on a phone
+```
+
+The Meta key stays on the server; the browser never sees it.
+
+**Chrome extension:** open `chrome://extensions`, turn on Developer mode, choose **Load unpacked** and select
+`extension/`. Hover any outfit photo and click **Shop this look** — only that photo is sent to your Rewear, and
+nothing runs in the background.
+
+## Hosted mode and the judge site
+
+`rewear --hosted` adds accounts (Argon2id passwords), CSRF and origin checks, and per-account storage and job
+limits. For judging, the site runs with organizer-managed accounts (no sign-up or password changes) and a
+per-account daily spend cap:
+
+```sh
+rewear account create --hosted-data-dir <dir> --username judge
+rewear --hosted --public-origin https://<domain> --hosted-data-dir <dir> --accounts managed --daily-spend-limit-usd 5
+```
+
+The live demo runs this way behind a Cloudflare Tunnel. Operations, Docker/HTTPS deployment and backups:
+[`docs/HOSTED_OPERATIONS.md`](docs/HOSTED_OPERATIONS.md).
+
+## Quality and honesty
+
+- Frozen 100-photo lifestyle benchmark (Oct 23, preparation): **90/100** target garments identified and **85/100**
+  faithful full-garment previews; no failed or uncertain candidate is published automatically.
+- 30 real street-style photos were re-tested during the event; the fixes are listed above.
+- Automatic same-item verification still confirms 0 matches on the fixed set, so the UI only ever says "Shop similar".
+- **1,610 automated tests**, including 12 real-browser end-to-end runs (2 of them drive the extension). Evidence:
+  [`docs/VERIFICATION.md`](docs/VERIFICATION.md); the raw `out/` evidence (about 2 GB) is kept locally.
+
+## Repository layout
+
+| Path | Contents |
+| --- | --- |
+| `wardrobe/` | FastAPI app, analysis pipeline, Meta model providers, web UI |
+| `extension/` | Rewear for Chrome ("Shop this look") |
+| `tests/` | Unit, API and real-browser end-to-end tests |
+| `deploy/` | Docker + Caddy HTTPS deployment |
+| `docs/` | Design, operations and verification notes (mostly in Chinese) |
+| `media/production/` | Reproducible demo-film pipeline: scripts, recordings, narration |
+| `submission/` | Demo video, subtitles, extension zip and submission checklist |
+
+## License
+
+MIT — see [`LICENSE`](LICENSE). Third-party photos keep their own licenses (Pexels License).
+
+---
+
+## 中文說明
+
+衣序 Rewear Studio 把任何穿搭照片（街拍、朋友的貼文、短片）變成可以購物的單品清單，使用
+**Meta SAM 3.1、Muse Spark 1.3 與 Muse Image 1.0**。AI 看到的和推測的分開呈現：看不清楚的區域會標示出來、
+AI 預覽一律標示，購物連結只說「相似款」，不宣稱是同一件。
+
+- **線上試用：** <https://rewear.soraing.com>（評審帳號寫在提交表單）
+- **Demo 影片與提交檔案：** [`submission/`](submission/README.md)（1:41，英文旁白與字幕）
+- **Chrome 擴充功能「Shop this look」：** [`extension/`](extension/README.md)
+
+預設為本機模式，另可明確啟用帳號隔離的網站模式。實測數字、截圖與誠實限制整理在
+[Hackathon 交付稿](docs/HACKATHON_HANDOFF.md)。`docs/` 引用的驗證證據在 `out/`（約 2 GB 的測試輸出與第三方
+測試照片），只保留在本機，沒有放進這個 repo；結果摘要見 [`docs/VERIFICATION.md`](docs/VERIFICATION.md)。
+影片製作流程與原始素材在 [`media/production/`](media/production/README.md)。
+
+### 活動期間完成的工作
+
+**活動前（10/21–10/23）為前置準備：** 分割 → 衣物判讀 → 預覽流程與網站模式的早期原型，以及內部品質基準。
+影片引用的 100 張基準數字（辨識 90/100、忠實預覽 85/100）來自 10/23 的前置準備。
+
+**活動期間（10/26–11/4）完成：** 影片中使用者看到的產品體驗，都是活動期間新做或重做的：
+
+- 兩步驟流程：Take a photo／Import photos → Meta AI 自動分析 → 「N pieces found」→ Shop similar；手機由下滑出的
+  衣物詳情；照實說明的錯誤狀態（含 Meta API billing）。
+- 依 30 張街拍實測改善結果品質：同件只顯示一次、無法辨識的碎片不進結果、具體款式名稱帶出更準的購物搜尋。
+- **Rewear for Chrome（Shop this look）**：全新的瀏覽器擴充功能（`extension/`）。
+- 以真實 SAM 3.1、Muse Spark 1.3、Muse Image 1.0 實測，以及 12 項真實瀏覽器端對端測試（其中 2 項操作擴充功能）。
+- 評審試用網站的防濫用設定：主辦方發放的帳號、每帳號每日費用上限。
+- 有旁白的 Demo 影片與可重建的製作流程（`media/production/`）。
+
+量化：`wardrobe/` 33 個原始檔中 22 個、測試 48 個檔中 30 個在活動期間修改或新增，`extension/` 全部是新的。
+
+### 啟動
 
 需要 Python 3.12+；影片功能另需 `ffmpeg` / `ffprobe`。
 
@@ -75,7 +188,7 @@ Rewear 會開啟並自動分析這一張照片。只有按下時才傳送該張�
 
 網站模式包含註冊、登入、一次性復原碼、密碼變更、私人衣櫃、容量管理及媒體清理。
 正式 HTTPS、容器安裝、容量參數、離線備份與還原方法見
-[網站模式與維運](docs/HOSTED_OPERATIONS.md)。公開環境尚未選定；既有本機資料不會自動公開或移入帳號。
+[網站模式與維運](docs/HOSTED_OPERATIONS.md)。評審試用網站已以 `--accounts managed` 部署在 <https://rewear.soraing.com>（Cloudflare Tunnel）；既有本機資料不會自動公開或移入帳號。
 
 目前預設的低成本重建會以一次 Muse Image 請求產生三張完整候選，標準生成費率估算約
 **US$0.03／件**；使用者選圖後會持久保存，但候選仍標示為 AI 推測。最新工程基準先從 Pexels
@@ -98,7 +211,7 @@ Rewear 會開啟並自動分析這一張照片。只有按下時才傳送該張�
 唯讀容器／HTTPS／登入隔離／備份還原 140 項檢查。桌機與 390px 手機瀏覽器均驗證三候選選圖及三個
 免費搜尋入口；完整證據索引見[最新驗證紀錄](docs/VERIFICATION.md)。
 
-## 模型設定
+### 模型設定
 
 | 功能 | 需求 |
 | --- | --- |
@@ -149,7 +262,7 @@ Credentials，先以 `uv sync --extra dev --extra image-search` 安裝授權套�
 「已設定」僅表示有提供設定，不代表 API 權限或同款搜尋效果已驗證。
 官方設定與回應格式見 [Google Web Detection](https://docs.cloud.google.com/vision/docs/detecting-web)。
 
-## 使用流程
+### 使用流程
 
 1. 選擇一或多張照片、或最長 30 秒的影片。每批最多 32 檔、每檔 50 MB、整批 256 MB。
 2. 選擇單件、多件／影片或生活穿搭模式，以及欄位分析模型。生活穿搭只接受照片；
@@ -289,7 +402,7 @@ CSV 另外保存最新重建嘗試、主圖與候選圖各自的品質和問題�
 完整預覽另有 `reconstruction_preview_url / reconstruction_preview_status /
 reconstruction_preview_inferred_areas / reconstruction_preview_warnings`，只有完整預覽檢查通過的圖才匯出預覽網址。
 
-## 失敗與資料保存
+### 失敗與資料保存
 
 - 分析、重建與購買查找共用最多 64 筆執行中／排隊任務；每類一次執行一件，網站模式由所有帳號共用此額度。
 - 每張照片或每段影片最多整理 24 個衣物區域；分析完成時圖片與購買查找可能仍在處理。
@@ -321,7 +434,7 @@ uv run python scripts/reassess_catalogue.py --data-dir data
 示範圖片是衣架畫面的三個切片，並非已驗證的單件分割結果。素材與來源詳見
 [`wardrobe/demo/ATTRIBUTION.md`](wardrobe/demo/ATTRIBUTION.md)。
 
-## 驗證與開發
+### 驗證與開發
 
 [可用產品驗收](docs/PRODUCT_READINESS.md)追蹤尚未達成的還原及同款購買要求。
 

@@ -513,7 +513,7 @@ def test_extension_sends_a_feed_photo_to_rewear_and_finds_each_piece(extension, 
     expect(banner).to_contain_text("2 pieces found", timeout=RESULT_TIMEOUT)
     expect(banner).to_contain_text("photo-from-localhost.jpg")
     assert sorted(card_titles(rewear)) == ["Denim jacket", "Wide-leg trousers"]
-    expect(page.locator(".rewear-ext-notice")).to_have_text("Opened in Rewear — finding every piece.")
+    expect(page.locator(".rewear-ext-notice")).to_have_text("Opened in Rewear — finding every piece.", timeout=30_000)
     # The button never appears on Rewear itself, and the second photo reuses the open Rewear tab.
     rewear.mouse.move(400, 400)
     expect(rewear.locator(".rewear-ext-pill")).to_have_count(0)
@@ -540,6 +540,61 @@ def test_extension_explains_when_rewear_is_not_running(extension, feed):
     pages = len(context.pages)
     pill.click()
     notice = page.locator(".rewear-ext-notice")
-    expect(notice).to_contain_text("Rewear isn't running", timeout=10_000)
+    expect(notice).to_contain_text("Rewear isn't reachable", timeout=30_000)
     expect(notice).to_have_class(re.compile("rewear-ext-error"))
     assert len(context.pages) == pages
+
+
+def test_extension_works_with_a_signed_in_hosted_site(extension, feed, tmp_path):
+    from wardrobe.hosted import create_hosted_app
+
+    context, worker = extension
+    sock = socket.socket()
+    sock.bind(("127.0.0.1", 0))
+    origin = f"http://127.0.0.1:{sock.getsockname()[1]}"
+    app = create_hosted_app(
+        Settings(data_dir=tmp_path / "local", api_key="e2e-fixture-no-network"),
+        origin=origin,
+        hosted_dir=tmp_path / "hosted",
+        providers_factory=lambda settings: ScriptedModels(),
+        allow_insecure_local=True,
+        accounts_mode="managed",
+    )
+    server = uvicorn.Server(uvicorn.Config(app, log_level="warning", access_log=False))
+    thread = threading.Thread(target=server.run, kwargs={"sockets": [sock]}, daemon=True)
+    thread.start()
+    try:
+        deadline = time.monotonic() + 15
+        while not server.started:
+            assert time.monotonic() < deadline and thread.is_alive(), "hosted server did not start"
+            time.sleep(0.05)
+        app.state.accounts.register("judge", "judge-only-password-2026", "Judge")
+        worker.evaluate("url => chrome.storage.local.set({ rewearUrl: url })", f"{origin}/")
+
+        page, pill = hover_feed_photo(context, feed)
+        with context.expect_page() as opened:
+            pill.click()
+        rewear = opened.value
+        # The worker fetches the photo (up to 15 s on a slow network) before it opens Rewear.
+        expect(page.locator(".rewear-ext-notice")).to_contain_text("Sign in to Rewear", timeout=30_000)
+        rewear.wait_for_url("**/login")
+        expect(rewear.locator("#auth-managed-note")).to_be_visible()  # the page script is ready
+        expect(rewear.locator("#tab-register")).to_be_hidden()
+        rewear.fill("#login-username", "judge")
+        rewear.fill("#login-password", "judge-only-password-2026")
+        rewear.locator("#login-form button[type=submit]").click()
+        rewear.wait_for_url(re.compile(re.escape(origin) + r"/(#\w+)?$"))  # the app adds #wardrobe once it loads
+        expect(rewear.locator("#items-region")).to_have_attribute("aria-busy", "false")
+
+        pages = len(context.pages)
+        page.bring_to_front()
+        page.mouse.move(5, 5)
+        box = page.locator("img").bounding_box()
+        page.mouse.move(box["x"] + box["width"] / 2, box["y"] + box["height"] / 2)
+        page.locator(".rewear-ext-pill").click()
+        expect(rewear.locator("#results-banner")).to_contain_text("2 pieces found", timeout=RESULT_TIMEOUT)
+        assert len(context.pages) == pages
+    finally:
+        server.should_exit = True
+        thread.join(timeout=15)
+        sock.close()

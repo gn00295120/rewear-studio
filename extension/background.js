@@ -39,6 +39,9 @@ async function shop(request, sourceTab) {
     await ensureRunning(base);
     const photo = await grab(request, sourceTab);
     const tab = await openRewear(base, sourceTab);
+    if (tab.url && new URL(tab.url).pathname.endsWith("/login")) {
+      throw new Error("Sign in to Rewear in the tab that just opened, then click Shop this look again.");
+    }
     const reply = await deliver(tab.id, { ...photo, source: request.host || "the web" });
     if (!reply?.ok) throw new Error(reply?.reason || "Rewear didn't accept the photo. Reload the Rewear tab and try again.");
     return { ok: true };
@@ -48,11 +51,12 @@ async function shop(request, sourceTab) {
 }
 
 async function ensureRunning(base) {
+  // Any HTTP answer means Rewear is reachable; a hosted site answers 401 until you sign in, which the tab handles.
   try {
-    const response = await fetch(new URL("api/health", base), { signal: AbortSignal.timeout(5000) });
-    if (response.ok) return;
+    await fetch(new URL("api/health", base), { signal: AbortSignal.timeout(5000) });
+    return;
   } catch {}
-  throw new Error(`Rewear isn't running at ${base.host}. Start it with "uv run rewear", then try again.`);
+  throw new Error(`Rewear isn't reachable at ${base.host}. Start it with "uv run rewear" or check the address in the Rewear popup.`);
 }
 
 async function grab({ src, rect, view }, tab) {

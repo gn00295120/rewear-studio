@@ -1202,3 +1202,11 @@ def test_daily_spend_limit_stops_new_paid_work_for_that_account_only(tmp_path):
         for path in ("/api/items/missing/discovery", "/api/items/missing/reconstruction"):
             assert client.post(path, headers=headers(alice)).status_code == 429
         assert client.post("/api/items/missing/discovery", headers=headers(bob)).status_code == 404
+
+
+def test_login_page_forms_never_put_credentials_in_the_url(tmp_path):
+    app, _ = make_app(tmp_path)
+    with TestClient(app, base_url=ORIGIN) as client:
+        page = client.get("/login").text
+        for form in ("login-form", "register-form", "recover-form"):
+            assert f'<form id="{form}" method="post"' in page

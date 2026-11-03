@@ -20,12 +20,16 @@ async function check(base) {
   show("Checking Rewear…");
   try {
     const response = await fetch(new URL("api/health", base), { signal: AbortSignal.timeout(5000) });
+    if (response.status === 401) {
+      show("Connected. Sign in to Rewear in a browser tab, then use Shop this look.", "ok");
+      return;
+    }
     if (!response.ok) throw new Error(String(response.status));
     const health = await response.json();
     const ready = health?.meta?.configured;
     show(ready ? "Connected · Meta AI is ready." : "Connected, but no Meta API key is set in Rewear.", ready ? "ok" : "error");
   } catch {
-    show(`Rewear isn't running at ${new URL(base).host}. Start it with "uv run rewear".`, "error");
+    show(`Rewear isn't reachable at ${new URL(base).host}. Start it with "uv run rewear" or fix the address.`, "error");
   }
 }
 
